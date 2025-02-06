@@ -1,3 +1,17 @@
-remote_theme: pages-themes/modernist@v0.2.0
+title: "Tatsuki Koyama's website"
+description: "Tatsuki Koyama"
+baseurl: ""  # Leave empty unless your site is in a subdirectory
+url: "https://tk-koyama.github.io"  # Change this to your actual site URL
+
+# Disable Jekyll theme (not using remote_theme)
+theme: null
+
+# Enable GitHub Pages Plugins (Optional)
 plugins:
-  - jekyll-remote-theme
+  - jekyll-sitemap  # Generates a sitemap.xml
+  - jekyll-feed     # Creates an RSS feed
+  - jekyll-seo-tag  # Helps with SEO metadata
+
+# Exclude files/folders from processing
+exclude:
+  - README.md
