@@ -1,0 +1,162 @@
+<!--
+
+/* @charset "Shift_JIS"; */
+
+* {
+  word-break: normal;
+  word-wrap: break-word;
+}
+
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  word-break: normal;
+  /*font-family: "meiryo", "osaka", "ms ui gothic";
+  */
+
+font-size: 12px;
+  font-family:Arial;
+}
+
+html{
+	height: 100%;
+	margin-bottom: 1px;
+	color: darkgreen;
+}
+
+body {
+  background-color:#e1dfe0;
+  /*outside*/
+text-align: left;
+  color: darkgreen;
+}
+
+/* ------------------------------ */
+/*                                */
+/*                                */
+/* ------------------------------ */
+
+#wrapper{
+  width: 758px;
+  margin: 10px auto 10px auto;
+  background-color:inherit;
+  /* light */;
+}
+
+.header {
+	margin: auto auto 10px auto;
+}
+
+.main{
+	float: right;
+	width: 580px;
+	padding: 0px 8px 0px 0px;
+	margin: 4px 0;
+}
+
+.side{
+	float: left;
+	width: 150px;
+	padding: 0px 0px 0px 8px;
+	margin: 4px 0;
+}
+
+.mainbody{
+	margin-bottom: 20px;
+	display: block;
+}
+
+.sidebody{
+	margin-bottom: 20px;
+	display: block;
+}
+
+.footer{
+	clear: both;
+	text-align: right;
+	padding: 4px 8px 0 0;
+	border-width: 1px 0 1px 0;
+	border-color: teal;
+	border-style: solid;
+	font-size: 80%;
+}
+
+/* ------------------------------ */
+/*                                */
+/*                                */
+/* ------------------------------ */
+
+p {
+	margin: 0 0 8px 12px;
+}
+
+a{color: royalblue; text-decoration: none; padding: 0px 10px;}
+a:hover{background-color: lavender; padding: 0px 10px;}
+a img{border:none;text-decoration:none;}
+
+h2{
+	background-color: lavender;
+	border-width: 0 8px 0 8px;
+	border-color: royalblue; /* dark */
+	border-style: solid;
+	margin: 0 0 12px 0;
+	padding: 4px 0px 4px 4px;
+	font-size: 100%;
+	font-weight: normal;
+	color: darkgreen;
+}
+
+/* ------------------------------ */
+/*                                */
+/*                                */
+/* ------------------------------ */
+
+.mainbody table{
+	margin: 0px auto 8px 16px;
+	border-collapse: collapse;
+}
+
+.mainbody td{
+	border-collapse: collapse;
+	padding: 5px;
+	text-align: center;
+}
+
+.mainbody img{
+	margin: 8px auto 8px 4px;
+	display: block;
+}
+
+.mainbody .le{
+	width: 240px;
+	float: left;
+	margin-left: 12px;
+}
+.mainbody .ri{
+	width: 240px;
+	float: right;
+	margin-right: 12px;
+}
+
+.mainbody p{
+	line-height: 150%;
+}
+
+/* ------------------------------ */
+/*                                */
+/*                                */
+/* ------------------------------ */
+
+.sidebody a{
+	font-size: 100%;
+}
+
+
+/* ------------------------------ */
+/*                                */
+/*                                */
+/* ------------------------------ */
+
+-->
+
