@@ -158,5 +158,53 @@ h2{
 /*                                */
 /* ------------------------------ */
 
+     
+        .navbar {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            max-width: 900px;
+            margin-top: 50px;
+        }
+        .left-column {
+            width: 40%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .left-column img {
+            width: 200px; /* Adjust the size as needed */
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .left-column .info {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .left-column .info a {
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+        .right-column {
+            width: 60%;
+            padding: 20px;
+        }
+
+
 -->
 
