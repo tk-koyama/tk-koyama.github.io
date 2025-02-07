@@ -33,8 +33,8 @@ body {
     align-items: center;
 }
 
-a {color: royalblue; text-decoration: none; padding: 0px 10px;}
-a:hover{padding: 0px 10px; text-decoration: underline;}
+a {color: royalblue; text-decoration: none; padding: 0px 0px;}
+a:hover{padding: 0px 0px; text-decoration: underline;}
 a img{border:none;text-decoration:none;}
 
 .container-box {
@@ -74,7 +74,7 @@ main {
     background-color: #d9d9d9;
     padding: 10px;
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: 4px;
     margin-top: 10px;
 }
 
@@ -119,7 +119,8 @@ main {
 }
 
 .content .main-image {
-    width: 100%;
+    /*width: 100%;*/
+    width: 400px;
     max-width: 600px;
     border-radius: 10px;
     margin-top: 20px;
@@ -131,5 +132,44 @@ main {
 
 .r-logo {
     margin-bottom: -10px; /* Adjust value as needed */
+}
+
+
+/* Feb2025.css - Mobile-Friendly Enhancements */
+
+/* Mobile-Friendly Updates */
+@media screen and (max-width: 768px) {
+    /* Navigation Bar - Stack Items on Mobile */
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .navbar ul li {
+        text-align: center;
+        padding: 5px 0;
+    }
+
+    /* Stack Sidebar Above Content on Mobile */
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+    .content {
+        width: 100%;
+    }
+
+    /* Reduce Spacing for Small Screens */
+    .container-box {
+        padding: 5px;
+    }
 }
 
