@@ -15,3 +15,10 @@ plugins:
 # Exclude files/folders from processing
 exclude:
   - README.md
+  - .DS_Store  # macOS system files
+  - "*.swp"    # Vim swap files
+  - "*.un~"    # Backup files
+  - _site      # Local build output (if using `jekyll build`)
+  - .jekyll-cache  # Jekyll cache files
+
+permalink: pretty
