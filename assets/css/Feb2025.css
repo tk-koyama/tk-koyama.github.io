@@ -128,3 +128,8 @@ main {
 .hide {
     color: #bdbdbd;
 }
+
+.r-logo {
+    margin-bottom: -10px; /* Adjust value as needed */
+}
+
