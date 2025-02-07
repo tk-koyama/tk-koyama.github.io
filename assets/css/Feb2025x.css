@@ -1,9 +1,11 @@
-
 /* Feb2025.css */
 
 /* greys
+#f7f7f7 (light)
 #d9d9d9
 #bdbdbd
+#969696
+#636363
 #252525 (dark)
 */
 
@@ -13,19 +15,19 @@
   margin: 0;
   padding: 0;
   word-break: normal;
+  font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
 
 html{
     height: 100%;
-    margin-bottom: 1px;
-    color: darkgreen;
+    margin-bottom: 10px;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding:0;
     background-color: #bdbdbd;
     color: #252525;
     display: flex;
@@ -37,21 +39,25 @@ a {color: royalblue; text-decoration: none; padding: 0px 10px;}
 a:hover{padding: 0px 10px; text-decoration: underline;}
 a img{border:none;text-decoration:none;}
 
-.container-box {
-    max-width: 1100px; /* Set a max width to contain everything */
+.navbar {
+    max-width: 1000px; /* sidebar + content + margin */
+    display: flex;
+    background-color: #bdbdbd; /* Match body background */
+    padding: 40px 10px 20px 10px;
     width: 100%;
-    margin: 0 auto; /* Center the whole container */
-    padding: 10px;
-    background-color: #bdbdbd;
+    border-radius: 0px; /* No visible corners */
+    border-bottom: 4px solid #636363;
+    margin-left: 0;
+    margin-right: auto;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
-.navbar {
-    width: 100%; /* Navbar spans full width of the box */
-    background-color: #d9d9d9;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f7f7f7; /* Light text for contrast */
+    margin-left: 20px;
 }
 
 .navbar ul {
@@ -59,23 +65,29 @@ a img{border:none;text-decoration:none;}
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+    white-space: nowrap;
 }
 
 main {
     display: flex;
+    max-width: 1200px; /* Matches navbar max-width */
     width: 100%;
-    gap: 10px; /* Space between sidebar and content */
+    margin: 20px auto;
 }
 
 .sidebar {
-    width: 30%;
+    width: 280px;
     background-color: #d9d9d9;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
+    text-align: left;
 }
 
 .sidebar .profile-pic {
@@ -104,16 +116,17 @@ main {
 }
 
 .content {
-    width: 70%;
+    flex: 1;
+    max-width: 700px; /* Restrict content width */
+    padding: 20px;
     background-color: #d9d9d9;
-    padding: 10px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .content h1 {
     margin-bottom: 20px;
-    border-bottom: 2px solid #252525;
+    border-bottom: 2px solid #636363;
     padding-bottom: 10px;
     color: #252525;
 }
@@ -128,3 +141,5 @@ main {
 .hide {
     color: #bdbdbd;
 }
+
+
