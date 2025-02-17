@@ -88,7 +88,7 @@
 set.seed(100)
 y <- rnorm(80, 26, 9)
 sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
-group <- paste('Group ', sample(1:4, 40, prob = c(2, 5, 4, 1), replace = TRUE), sep='')
+group <- paste('Group ', sample(1:4, 40, prob = c(2,5,4,1), replace = TRUE), sep='')
 
 d <- data.frame(y, sex, group)
         rm(y,sex,group)
@@ -102,7 +102,7 @@ tplot(y ~ group, data=d, ylim=c(0,50),
         boxplot.pars=list(notch=TRUE, boxwex=0.5)
 )
 </code></pre>
-<img src="../assets/images/tplotExample.jpeg" alt="Tatsuki Koyama", width="100%">
+<img src="../assets/images/tplotExample.jpeg" alt="Tatsuki Koyama", width="80%">
 </div>
 </li>
 <!-- ------ --> 

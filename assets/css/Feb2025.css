@@ -16,6 +16,8 @@
 html{
     height: 100%;
     color: darkgreen;
+    overflow-y: scroll; /* Ensures the vertical scrollbar is always visible */
+    overflow-x: hidden; /* Prevent horizontal page shifting */
 }
 
 body {
@@ -27,6 +29,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw; /* Ensures body does not expand beyond the viewport */
+    overflow-x: hidden; /* Prevents horizontal overflow */
 }
 
 p {
@@ -51,18 +55,24 @@ code {
     font-size: 1.0em; /* Matches surrounding text size */
     font-family: "Courier New", monospace; /* Ensures it stays monospaced */
     padding: 2px 2px; /* Adds slight padding for readability */
-    background-color: inherit; /* Optional: Light gray background */
-    /* border-radius: 0px;  Slight rounding for a polished look */
+    background-color: inherit; 
+    border-radius: 2px; /* Slight rounding for a polished look */
 }
 
 pre {
-    margin-top: 2x;  /* Reduce space above "R Code" */
-    margin-bottom: 40px; /* Reduce space below */
+    display: block;
+    margin-top: 2px;  /* Reduce space above "R Code" */
+    margin-bottom: 40px;
     padding: 8px; /* Optional: Adds padding for better readability */
     background-color: #f5f5f5; /* Optional: Light gray background */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 8px; /* Rounded corners */
     overflow-x: auto; /* Ensures long lines don't break formatting */
+    white-space: pre; /* Ensures the text doesn't wrap */
+    max-width: 100%; /* Prevents it from expanding beyond the container */
 }
+
+
+
 
 .container-box {
     max-width: 1100px; /* Set a max width to contain everything */
@@ -97,6 +107,8 @@ main {
 }
 
 .sidebar {
+    flex: 0 0 30%; /* Fixes the sidebar width */
+    max-width: 300px; /* Optional: Set a hard max width */
     width: 30%;
     background-color: #d9d9d9;
     padding: 10px;
@@ -131,6 +143,9 @@ main {
 }
 
 .content {
+    flex: 1; /* Ensures it doesn't expand unexpectedly */
+    min-width: 0; /* Prevents overflow from forcing extra space */
+    overflow: hidden; /* Ensures no unexpected layout shifting */
     width: 70%;
     background-color: #d9d9d9;
     padding: 10px;
@@ -250,3 +265,4 @@ main {
         padding: 5px;
     }
 }
+
