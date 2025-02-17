@@ -8,46 +8,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </head>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
 <body>
     <div class="container-box">
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../rhtml/RFunctions1.html"><img src="../assets/images/Rlogo.svg" alt="R Logo" width="20"> files</a></li>
-                    <li><a href="../teaching.html">Teaching</a></li>
-                    <li><a href="../cv.html">CV</a></li>
-                </ul>
-            </nav>
-        </div>
-        
-        <main>
-            <aside class="sidebar">
-                <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
-                <h2>Tatsuki Koyama</h2>
-                <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
-                <p>Nashville, TN</p>
-                <ul class="social-links"> 
-                    <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
-                    <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en" target="_blank"> <i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
-                </ul>
-            </aside>
-            <section class="content">
-                <h1>R Functions</h1>
-                <div class="r-functions-links" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-                    <a href="RFunctions1.html">R Functions 1</a>
-                    <a href="RFunctions2.thml">R Functions 2</a>
-                    <a href="TwoStage2025.html">Two-stage Designs</a>
-                </div>
-                <ul>
-                    <li><code>func1</code></li>
-                    <li><code>func2</code></li>
-                    <li><code>func3</code></li>
-                </ul>
-            </section>
-        </main>
-    </div> <!-- End of container-box -->
+    <div class="navbar"> 
+        <nav>
+        <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../rhtml/RFunctions1.html"><img src="../assets/images/Rlogo.svg" alt="R Logo" width="20"> files</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        </ul>
+        </nav>
+    </div>
+<!-- ------ --> 
+<main>
+    <aside class="sidebar">
+        <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
+        <h2>Tatsuki Koyama</h2>
+        <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
+        <p>Nashville, TN</p>
+            <ul class="social-links"> 
+            <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
+            <li><a href="https://www.athlinks.com/athletes/155884025"><i class="fa fa-link"></i> Athlinks</a></li>
+            </ul>
+    </aside>
+<!-- ------ -->
+<!--        -->
+<!-- ------ -->
+<section class="content">
+<h1>R Functions</h1>
+<div class="r-functions-links" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+    <a href="RFunctions1.html">R Functions 1</a>
+    <a href="RFunctions2.html">R Functions 2</a>
+    <a href="TwoStage2025.html">Two-stage Designs</a>
+</div>
+<div class="r-functions-list"> 
+<h2>Available Functions</h2>
+<p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions2.R" target="_blank"> Download RFunctions2.R (GitHub) </a></p>
+<!-- ------ -->
+<!--        -->
+<!-- ------ -->
+<ul>
+<li><button onclick="toggleVisibility('f1-details')">Function 1</button>
+    <div id="f1-details" style="display: none;">
+    <p><strong>Description:</strong> Function 1</p>
+    <pre><code># Example usage in R</code></pre>
+    </div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('f2-details')">Function 2</button>
+    <div id="f2-details" style="display: none;">
+    <p><strong>Description:</strong> Function 2</p>
+    <pre><code># Example usage in R</code></pre>
+    </div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('f3-details')">Function 3</button>
+    <div id="f3-details" style="display: none;">
+    <p><strong>Description:</strong> Function 3</p>
+    <pre><code># Example usage in R</code></pre>
+    </div>
+</li>
+</ul>
+</div>
+</section>
+</main>
+</div> <!-- End of container-box -->
 </body>
 </html>
-

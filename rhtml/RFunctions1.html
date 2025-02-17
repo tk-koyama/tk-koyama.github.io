@@ -37,46 +37,54 @@
 <!-- ------ --> 
 <main>
     <aside class="sidebar">
-    <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
-    <h2>Tatsuki Koyama</h2>
-    <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
-    <p>Nashville, TN</p>
-        <ul class="social-links"> 
-        <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
-        <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en" target="_blank"> <i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
-        </ul>
+        <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
+        <h2>Tatsuki Koyama</h2>
+        <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
+        <p>Nashville, TN</p>
+            <ul class="social-links"> 
+            <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
+            <li><a href="https://www.athlinks.com/athletes/155884025"><i class="fa fa-link"></i> Athlinks</a></li>
+            </ul>
     </aside>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
 <section class="content">
-                <h1>R Functions</h1>
-                <p>
-                    <a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank">
-                        Download RFunctions1.R (GitHub)
-                    </a>
-                </p>
-                <div class="r-functions-list">
-                    <h2>Available Functions</h2>
-                    <ul>
+<h1>R Functions</h1>
+    <div class="r-functions-links" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+    <a href="RFunctions1.html">R Functions 1</a>
+    <a href="RFunctions2.html">R Functions 2</a>
+    <a href="TwoStage2025.html">Two-stage Designs</a>
+    </div>
+<!--        --> 
+<div class="r-functions-list">
+<h2>Available Functions</h2>
+<p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank"> Download RFunctions1.R (GitHub) </a> </p>
+<!--        --> 
+<ul>
 <li>
-    <button onclick="toggleVisibility('tplot-details')">tplot</button>
-    <div id="tplot-details" style="display: none;">
-        <p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
-
-        <h3>Example</h3>
-        <p>This example demonstrates the available options in <strong>tplot()</strong>. While it may not be the best way to visualize these particular data (due to excessive color variation), it showcases different customization features.</p>
+<button onclick="toggleVisibility('tplot-details')">tplot</button>
+<div id="tplot-details" style="display: none;">
+<p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<h3>Example</h3>
+<p>This example demonstrates the available options in <strong>tplot()</strong>. While it may not be the best way to visualize these particular data (due to excessive color variation), it showcases different customization features.</p>
 
 <ul>
-    <li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.<li>
-            <li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.
-        <li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>Implementation of this functionality is questionable. Try different values.</small>
-    <li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
-    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
+<li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.<li>
+<li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.
+<li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>Implementation of this functionality is questionable. Try different values.</small>
+<li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
+<li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
 </ul>
-
-        <h3>R Code</h3>
-        <pre><code>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<h3>R Code</h3>
+<pre><code>
 set.seed(100)
 y <- rnorm(80, 26, 9)
 sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
@@ -95,40 +103,52 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 )
 </code></pre>
 <img src="../assets/images/tplotExample.jpeg" alt="Tatsuki Koyama", width="100%">
-    </div>
+</div>
 </li>
+<!-- ------ --> 
+<!--        --> 
+<!--        --> 
+<!-- ------ --> 
 <li><button onclick="toggleVisibility('kmplot-details')">kmplot</button>
-                            <div id="kmplot-details" style="display: none;">
-                                <p><strong>Description:</strong> Kaplan-Meier survival plot.</p>
-                                <pre><code># Example usage in R
-kmplot(survival_data)</code></pre>
-                            </div>
-                        </li>
-                        <li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
-                            <div id="jmplot-details" style="display: none;">
-                                <p><strong>Description:</strong> Joint modeling plot for longitudinal survival data.</p>
-                                <pre><code># Example usage in R
-jmplot(data)</code></pre>
-                            </div>
-                        </li>
-                        <li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
-                            <div id="dsplot-details" style="display: none;">
-                                <p><strong>Description:</strong> Density and scatter plot combination.</p>
-                                <pre><code># Example usage in R
-dsplot(data)</code></pre>
-                            </div>
-                        </li>
-                        <li><button onclick="toggleVisibility('showcolors-details')">showcolors</button>
-                            <div id="showcolors-details" style="display: none;">
-                                <p><strong>Description:</strong> Displays available color palettes.</p>
-                                <pre><code># Example usage in R
-showcolors()</code></pre>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-    </div> <!-- End of container-box -->
+<div id="kmplot-details" style="display: none;">
+<p><strong>Description:</strong> Kaplan-Meier survival plot.</p>
+<pre><code># Example usage in R kmplot(survival_data)</code></pre> 
+</div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
+<div id="jmplot-details" style="display: none;">
+<p><strong>Description:</strong> Joint modeling plot for longitudinal survival data.</p>
+<pre><code># Example usage in R</code></pre>
+</div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
+<div id="dsplot-details" style="display: none;">
+<p><strong>Description:</strong> Density and scatter plot combination.</p>
+<pre><code># Example usage in R</code></pre> 
+</div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('showcolors-details')">showcolors</button>
+<div id="showcolors-details" style="display: none;">
+<p><strong>Description:</strong> Displays available color palettes.</p>
+<pre><code># Example usage in R</code></pre>
+</div> 
+</li>
+</ul>
+</div>
+</section>
+</main>
+</div> <!-- End of container-box -->
 </body>
 </html>
