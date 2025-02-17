@@ -51,19 +51,12 @@ a img{
     text-decoration:none;
 }
 
-code {
-    font-size: 1.0em; /* Matches surrounding text size */
-    font-family: "Courier New", monospace; /* Ensures it stays monospaced */
-    padding: 2px 2px; /* Adds slight padding for readability */
-    background-color: inherit; 
-    border-radius: 2px; /* Slight rounding for a polished look */
-}
-
 pre {
+    font-size: 1em; /* Keeps text readable */
+    line-height: 1.2; /* Improves spacing between lines */
     display: block;
     margin-top: 2px;  /* Reduce space above "R Code" */
     margin-bottom: 40px;
-    padding: 8px; /* Optional: Adds padding for better readability */
     background-color: #f5f5f5; /* Optional: Light gray background */
     border-radius: 8px; /* Rounded corners */
     overflow-x: auto; /* Ensures long lines don't break formatting */
@@ -71,7 +64,20 @@ pre {
     max-width: 100%; /* Prevents it from expanding beyond the container */
 }
 
+code {
+    font-size: 1.0em; /* Matches surrounding text size */
+    font-family: "Courier New", monospace; /* Ensures it stays monospaced */
+    background-color: inherit; 
+    border-radius: 2px; /* Slight rounding for a polished look */
+    white-space: pre; /* Ensures proper spacing */
+    word-wrap: normal; /* Prevents words from breaking */
+}
 
+pre code {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    display: block;
+}
 
 
 .container-box {
