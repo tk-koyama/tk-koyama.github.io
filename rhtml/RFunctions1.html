@@ -100,17 +100,18 @@ group <- paste('Group ', sample(1:4, 40, prob = c(2,5,4,1), replace = TRUE), sep
 
 d <- data.frame(y, sex, group)
         rm(y,sex,group)
+
 tplot(y ~ group, data=d, ylim=c(0,50),
-        las=1, cex=1, cex.axis=1, bty='L',
-        show.n=TRUE, dist=0.5, jit=0.1, type=c('b','bd','db','d'),
-        group.pch=TRUE, pch=c(15,17,20,19),
-        group.col=FALSE, col=c('dodgerblue','deeppink')[c(sex)],
-        boxcol=c('powderblue','yellow3', 'grey', 'pink'), 
-        boxborder=grey(0.2),
-        boxplot.pars=list(notch=TRUE, boxwex=0.5)
+    las=1, cex=1, cex.axis=1, bty='L',
+    show.n=TRUE, dist=0.5, jit=0.07, type=c('b','bd','db','d'),
+    group.pch=TRUE, pch=c(15,17,20,19),
+    group.col=FALSE, col=c('orange','darkgreen')[c(sex)], 
+    boxcol=c('dodgerblue','magenta', 'lightgrey', 'pink'), 
+    boxborder=grey(0.2),
+    boxplot.pars=list(notch=TRUE, boxwex=0.5)
 )
 </code></pre>
-<img src="../assets/images/tplotExample.jpeg" alt="Tatsuki Koyama", width="80%">
+<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
 <!-- ------ --> 
