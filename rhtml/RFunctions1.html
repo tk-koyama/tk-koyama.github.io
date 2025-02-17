@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,31 +19,37 @@
         }
     </script>
 </head>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
 <body>
     <div class="container-box">
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../rhtml/RFunctions1.html"><img src="../assets/images/Rlogo.svg" alt="R Logo" width="20"> files</a></li>
-                    <li><a href="../teaching.html">Teaching</a></li>
-                    <li><a href="../cv.html">CV</a></li>
-                </ul>
-            </nav>
-        </div>
-        
-        <main>
-            <aside class="sidebar">
-                <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
-                <h2>Tatsuki Koyama</h2>
-                <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
-                <p>Nashville, TN</p>
-                <ul class="social-links"> 
-                    <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
-                    <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en" target="_blank"> <i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
-                </ul>
-            </aside>
-            <section class="content">
+    <div class="navbar"> 
+        <nav>
+        <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../rhtml/RFunctions1.html"><img src="../assets/images/Rlogo.svg" alt="R Logo" width="20"> files</a></li>
+        <li><a href="../teaching.html">Teaching</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        </ul>
+        </nav>
+    </div>
+<!-- ------ --> 
+<main>
+    <aside class="sidebar">
+    <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
+    <h2>Tatsuki Koyama</h2>
+    <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
+    <p>Nashville, TN</p>
+        <ul class="social-links"> 
+        <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=BEg13Y0AAAAJ&hl=en" target="_blank"> <i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
+        </ul>
+    </aside>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<section class="content">
                 <h1>R Functions</h1>
                 <p>
                     <a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank">
@@ -57,44 +62,42 @@
 <li>
     <button onclick="toggleVisibility('tplot-details')">tplot</button>
     <div id="tplot-details" style="display: none;">
-        <p><strong>tplot()</strong> is an alternative to <code>boxplot()</code>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
+        <p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
 
         <h3>Example</h3>
         <p>This example demonstrates the available options in <strong>tplot()</strong>. While it may not be the best way to visualize these particular data (due to excessive color variation), it showcases different customization features.</p>
 
 <ul>
-    <li><code>col</code> and <code>pch</code> can be specified at the <strong>individual level</strong> or <strong>group level</strong>.</li>
-    <li>In this example, <code>col</code> is set at the <strong>individual level</strong>, while <code>pch</code> is assigned at the <strong>group level</strong>.</li>
-    <li>Box colors and box borders are controlled by <code>boxcol</code> and <code>boxborder</code>.</li>
-    <li>The <code>boxplot.pars</code> argument is passed directly to <code>boxplot()</code>.</li>
+    <li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.<li>
+            <li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.
+        <li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>Implementation of this functionality is questionable. Try different values.</small>
+    <li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
+    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
 </ul>
-
-
-
-
-
 
         <h3>R Code</h3>
         <pre><code>
 set.seed(100)
-age <- rnorm(80, rep(c(26, 36), c(70, 10)), 4)
+y <- rnorm(80, 26, 9)
 sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
 group <- paste('Group ', sample(1:4, 40, prob = c(2, 5, 4, 1), replace = TRUE), sep='')
 
-d <- data.frame(age, sex, group)
-
-tplot(age ~ group, data = d,
-      las = 1, cex = 1, cex.axis = 1, bty = 'L',
-      show.n = TRUE, dist = 0.25, jit = 0.05, type = c('db', 'db', 'db', 'd'),
-      group.pch = TRUE, pch = c(15, 17, 19, 8),
-      col = c('darkred', 'darkblue')[c(sex)],
-      boxcol = c('lightsteelblue1', 'lightyellow1', grey(0.9), 0), 
-      boxborder = grey(0.8),
-      boxplot.pars = list(notch = TRUE, boxwex = 0.5))
-        </code></pre>
+d <- data.frame(y, sex, group)
+        rm(y,sex,group)
+tplot(y ~ group, data=d, ylim=c(0,50),
+        las=1, cex=1, cex.axis=1, bty='L',
+        show.n=TRUE, dist=0.5, jit=0.1, type=c('b','bd','db','d'),
+        group.pch=TRUE, pch=c(15,17,20,19),
+        group.col=FALSE, col=c('dodgerblue','deeppink')[c(sex)],
+        boxcol=c('powderblue','yellow3', 'grey', 'pink'), 
+        boxborder=grey(0.2),
+        boxplot.pars=list(notch=TRUE, boxwex=0.5)
+)
+</code></pre>
+<img src="../assets/images/tplotExample.jpeg" alt="Tatsuki Koyama", width="100%">
     </div>
 </li>
-                        <li><button onclick="toggleVisibility('kmplot-details')">kmplot</button>
+<li><button onclick="toggleVisibility('kmplot-details')">kmplot</button>
                             <div id="kmplot-details" style="display: none;">
                                 <p><strong>Description:</strong> Kaplan-Meier survival plot.</p>
                                 <pre><code># Example usage in R
