@@ -69,29 +69,34 @@
 <div class="r-functions-list">
 <h2>Custom Figures</h2>
 <p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank"> Download RFunctions1.R (GitHub) </a> </p>
-<!--        --> 
 <ul>
+<!-- ------ --> 
+<!-- tplot -->
+<!--        --> 
+<!-- ------ --> 
 <li>
 <button onclick="toggleVisibility('tplot-details')">tplot</button>
 <div id="tplot-details" style="display: none;">
 <p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
-<!-- ------ --> 
-<!--        --> 
-<!-- ------ --> 
+<!--        -->
 <h3>Example</h3>
-<p>This example demonstrates the available options in <strong>tplot()</strong>. While it may not be the best way to visualize these particular data (due to unnecessary color/point type variation), it showcases different customization features.</p>
-
-<ul>
-<li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.<li>
-<li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.
-<li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>Implementation of this functionality is questionable. Try different values.</small>
-<li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
-<li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
-</ul>
-<!-- ------ --> 
-<!--        --> 
-<!-- ------ --> 
+    <p>This example demonstrates the available options in <strong>tplot()</strong>. 
+    While it may not be the best way to visualize these particular data (due to unnecessary color/point type variation), it showcases different customization features.</p>
+    <p>
+    <ul>
+    <li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. 
+        In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.</li>
+    <li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, 
+        <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.</li>
+    <li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. 
+        <small>Implementation of this functionality is questionable. Try different values.</small></li>
+    <li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
+    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
+    </ul>
+    </p>
+<!--        -->
 <h3>R Code</h3>
+<!--        -->
 <pre><code class="language-r">
 set.seed(100)
 y <- rnorm(80, 26, 9)
@@ -111,51 +116,127 @@ tplot(y ~ group, data=d, ylim=c(0,50),
     boxplot.pars=list(notch=TRUE, boxwex=0.5)
 )
 </code></pre>
+<!--        -->
 <img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
-<!-- ------ --> 
-<!--        --> 
-<!--        --> 
-<!-- ------ --> 
+<!-- ------ -->
+<!-- kmplot -->
+<!--        -->
+<!-- ------ -->
 <li><button onclick="toggleVisibility('kmplot-details')">kmplot</button>
 <div id="kmplot-details" style="display: none;">
-<p><strong>Description:</strong> Kaplan-Meier survival plot.</p>
-<pre><code># Example usage in R kmplot(survival_data)</code></pre> 
+<p><strong>kmplot()</strong> draws a Kaplan-Meier curve. </p>
+<!--        -->
+<h3>Example</h3>
+<p>This example demonstrates the available options in <strong>kmplot()</strong>.</p>
+<ul>
+    <li>Can specify at which time n risk at is displayed by specifying <strong>xaxis.at</strong>.</li> 
+    <li><strong>lty</strong>, <strong>col</strong>, and <strong>lwd</strong> can be specified for each survival line and confidence interval line.
+    <li><strong>group.names</strong> can be specified.
+        <li>Can specify the order of appearance in the 'n risk at' table by changing <strong>group.order</strong>. <small>(So, the order approximately matches the appearance of the lines.)</small></li>
+    <li><strong>simple=TRUE</strong> surpresses the 'n risk at' table.</li>
+    <li>'n risk at' numbers are right-justified but centered. <small>(This is the original motivation for writing this function.)</small></li>
+</ul>
+<!--        --> 
+<h3>R Code</h3>
+<pre><code class="language-r">
+require(survival)
+
+kma <- survfit( Surv(time, status) ~ rx + adhere, data=colon )
+kmplot(kma, mark='', simple=FALSE,
+    xaxis.at=c(0, 0.5, 1:9)*365, xaxis.lab=c(0, 0.5, 1:9), # n.risk.at
+    lty.surv=c(1,2), lwd.surv=1, col.surv=c(1,1,2,2,4,4), # survival.curves
+    col.ci=0, # confidence intervals not plotted
+    group.names=c('Obs ','Obs tumor adh','Lev','Lev tumor adh','Lev+5FU ','Lev+5FU tumor adh'), # Change group names
+    group.order=c(5,3,1,6,4,2), # order of appearance in the n.risk.at table and legend.
+    extra.left.margin=6, label.n.at.risk=FALSE, draw.lines=TRUE,
+    cex.axis=.8, xlab='Years', ylab='Survival Probability', # labels
+    grid=TRUE, lty.grid=1, lwd.grid=1, col.grid='bisque',
+    legend=TRUE, loc.legend='bottomleft',
+    cex.lab=0.8, xaxs='r', bty='L', las=1, tcl=-0.2 # other parameters passed to plot()
+)
+
+title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=0.5, cex.main=1)
+
+</code></pre>
+<img src="../assets/images/kmplot1.png" alt="tplot example", width="95%">
 </div>
 </li>
 <!-- ------ --> 
-<!--        --> 
-<!--        --> 
+<!-- jmplot --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
 <div id="jmplot-details" style="display: none;">
-<p><strong>Description:</strong> Joint modeling plot for longitudinal survival data.</p>
-<pre><code># Example usage in R</code></pre>
+<p><strong>jmplot()</strong> plots the joint distribution with marginal distribution on each margin. </p>
+<!--        -->
+<h3>Example</h3>
+<p>This example demonstrates the available options in <strong>...</strong>.</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+<!--        --> 
+<h3>R Code</h3>
+<pre><code class="language-r">
+set.seed(1220)
+
+x <- rexp(100)
+y <- rexp(100)
+levels <- as.factor(sample(c("Male","Female"), 100, TRUE))
+
+jmplot(x, y, levels, col=c('brown','royalblue')[as.numeric(levels)], pch=19, main='Title', show.n=TRUE, jit=0.0)
+
+
+</code></pre>
+<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
 </div>
 </li>
 <!-- ------ --> 
-<!--        --> 
-<!--        --> 
+<!-- dsplot --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
 <div id="dsplot-details" style="display: none;">
-<p><strong>Description:</strong> Density and scatter plot combination.</p>
-<pre><code># Example usage in R</code></pre> 
-</div>
-</li>
-<!-- ------ --> 
-<!--        --> 
-<!--        --> 
-<!-- ------ --> 
-<li><button onclick="toggleVisibility('showcolors-details')">showcolors</button>
-<div id="showcolors-details" style="display: none;">
-<p><strong>Description:</strong> Displays available color palettes.</p>
-<pre><code># Example usage in R</code></pre>
-</div> 
-</li>
+<p><strong>...()</strong> is ... </p>
+<!--        -->
+<h3>Example</h3>
+<p>This example demonstrates the available options in <strong>...</strong>.</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
 </ul>
+<!--        --> 
+<h3>R Code</h3>
+<pre><code class="language-r">
+x <- 3
+</code></pre>
+<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
 </div>
+</li>
+<!-- ------ --> 
+<!-- show.colors --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('show.colors-details')">show.colors</button>
+<div id="show.colors-details" style="display: none;">
+<p><strong>...()</strong> is ... </p>
+<!--        -->
+<h3>Example</h3>
+<p>This example demonstrates the available options in <strong>...</strong>.</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+<!--        --> 
+<h3>R Code</h3>
+<pre><code class="language-r">
+x <- 3
+</code></pre>
+<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
+</div>
+</li>
 </section>
 </main>
 </div> <!-- End of container-box -->
