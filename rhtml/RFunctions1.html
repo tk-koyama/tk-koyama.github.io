@@ -80,20 +80,14 @@
 <p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
 <!--        -->
 <h3>Example</h3>
-    <p>This example demonstrates the available options in <strong>tplot()</strong>. 
-    While it may not be the best way to visualize these particular data (due to unnecessary color/point type variation), it showcases different customization features.</p>
-    <p>
-    <ul>
-    <li><strong>col</strong> and <strong>pch</strong> can be specified at the individual level or group level. 
-        In this example, <strong>col</strong> is set for individual, and <strong>pch</strong> is assigned at the group level, which is unnecessary.</li>
-    <li><strong>type</strong> indicates <strong>b</strong>=box only, <strong>d</strong>=dots only, 
-        <strong>bd</strong>=box in front of dots, <strong>db</strong>=dots in front of box.</li>
-    <li>Dots that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. 
-        <small>Implementation of this functionality is questionable. Try different values.</small></li>
-    <li>Box colors and box borders are controlled by <strong>boxcol</strong> and <strong>boxborder</strong>.</li>
-    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>.</li>
+This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
+<ul>
+    <li><strong>col</strong> and <strong>pch</strong> can be specified at either the individual or group level. In this example, <strong>col</strong> is set at the individual level, while <strong>pch</strong> is assigned at the group level, though this pch variation is unnecessary.</li>
+    <li>The <strong>type</strong> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
+    <li>Points that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
+    <li>Box colors and borders are controlled by the <strong>boxcol</strong> and <strong>boxborder</strong> arguments.</li>
+    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>, allowing further customization.</li>
     </ul>
-    </p>
 <!--        -->
 <h3>R Code</h3>
 <!--        -->
@@ -129,14 +123,14 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 <p><strong>kmplot()</strong> draws a Kaplan-Meier curve. </p>
 <!--        -->
 <h3>Example</h3>
-<p>This example demonstrates the available options in <strong>kmplot()</strong>.</p>
+This example demonstrates the available options in <strong>kmplot()</strong>.
 <ul>
-    <li>Can specify at which time n risk at is displayed by specifying <strong>xaxis.at</strong>.</li> 
-    <li><strong>lty</strong>, <strong>col</strong>, and <strong>lwd</strong> can be specified for each survival line and confidence interval line.
-    <li><strong>group.names</strong> can be specified.
-        <li>Can specify the order of appearance in the 'n risk at' table by changing <strong>group.order</strong>. <small>(So, the order approximately matches the appearance of the lines.)</small></li>
-    <li><strong>simple=TRUE</strong> surpresses the 'n risk at' table.</li>
-    <li>'n risk at' numbers are right-justified but centered. <small>(This is the original motivation for writing this function.)</small></li>
+    <li>The <strong>xaxis.at</strong> argument allows you to specify the time points at which the number at risk is displayed.</li>
+    <li><strong>lty</strong>, <strong>col</strong>, and <strong>lwd</strong> can be set individually for each survival and confidence interval line.</li>
+    <li>The <strong>group.names</strong> argument can be used to label groups.</li>
+    <li>The order of groups in the "n risk at" table can be adjusted using <strong>group.order</strong>, <small>so the order roughly matches the appearance of the lines.</small></li>
+    <li>Setting <strong>simple = TRUE</strong> suppresses the "n risk at" table.</li>
+    <li>The "n risk at" numbers are right-justified but visually centered. <small>This was the original motivation for creating this function.</small>
 </ul>
 <!--        --> 
 <h3>R Code</h3>
