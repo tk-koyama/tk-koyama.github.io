@@ -150,9 +150,7 @@ kmplot(kma, mark='', simple=FALSE,
     legend=TRUE, loc.legend='bottomleft',
     cex.lab=0.8, xaxs='r', bty='L', las=1, tcl=-0.2 # other parameters passed to plot()
 )
-
 title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=0.5, cex.main=1)
-
 </code></pre>
 <img src="../assets/images/kmplot1.png" alt="tplot example", width="95%">
 </div>
@@ -162,29 +160,21 @@ title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
 <div id="jmplot-details" style="display: none;">
-<p><strong>jmplot()</strong> plots the joint distribution with marginal distribution on each margin. </p>
-<!--        -->
+    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <cod>dist</cod> (which controls jitter) and <cod>jit</cod> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
+    <!--        -->
 <h3>Example</h3>
-<p>This example demonstrates the available options in <strong>...</strong>.</p>
-<ul>
-<li>one</li>
-<li>two</li>
-<li>three</li>
-</ul>
-<!--        --> 
-<h3>R Code</h3>
 <pre><code class="language-r">
 set.seed(1220)
 
 x <- rexp(100)
 y <- rexp(100)
 levels <- as.factor(sample(c("Male","Female"), 100, TRUE))
+co <- c('brown','royalblue')[as.numeric(levels)]
 
-jmplot(x, y, levels, col=c('brown','royalblue')[as.numeric(levels)], pch=19, main='Title', show.n=TRUE, jit=0.0)
-
-
+jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </code></pre>
-<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
+
+<img src="../assets/images/jmplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
 <!-- ------ --> 
@@ -192,23 +182,25 @@ jmplot(x, y, levels, col=c('brown','royalblue')[as.numeric(levels)], pch=19, mai
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
 <div id="dsplot-details" style="display: none;">
-<p><strong>...()</strong> is ... </p>
+    <p>(Discrete scatter plot) The idea was to show continuous data with lots of ties effectively. <small>This is no longer being developed. Use jitter() function carefully.</small></p>
 <!--        -->
-<h3>Example</h3>
+<!-- <h3>Example</h3>
 <p>This example demonstrates the available options in <strong>...</strong>.</p>
 <ul>
 <li>one</li>
 <li>two</li>
 <li>three</li>
 </ul>
+-->
 <!--        --> 
-<h3>R Code</h3>
+<!-- <h3>R Code</h3>
 <pre><code class="language-r">
 x <- 3
 </code></pre>
-<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
+<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
+-->
 <!-- ------ --> 
 <!-- show.colors --> 
 <!-- ------ --> 
