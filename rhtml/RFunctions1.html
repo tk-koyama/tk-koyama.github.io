@@ -152,7 +152,7 @@ kmplot(kma, mark='', simple=FALSE,
 )
 title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=0.5, cex.main=1)
 </code></pre>
-<img src="../assets/images/kmplot1.png" alt="tplot example", width="95%">
+<img src="../assets/images/kmplot1.png" alt="kmplot example", width="95%">
 </div>
 </li>
 <!-- ------ --> 
@@ -174,7 +174,7 @@ co <- c('brown','royalblue')[as.numeric(levels)]
 jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </code></pre>
 
-<img src="../assets/images/jmplot1.png" alt="tplot example", width="80%">
+<img src="../assets/images/jmplot1.png" alt="jmplot example", width="80%">
 </div>
 </li>
 <!-- ------ --> 
@@ -206,23 +206,23 @@ x <- 3
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('show.colors-details')">show.colors</button>
 <div id="show.colors-details" style="display: none;">
-<p><strong>...()</strong> is ... </p>
+    <strong>show.colors()</strong> shows all 657 named colors in R. You can select a color and display its name by running <cod>colors()[n]</cod>.
 <!--        -->
 <h3>Example</h3>
-<p>This example demonstrates the available options in <strong>...</strong>.</p>
-<ul>
-<li>one</li>
-<li>two</li>
-<li>three</li>
-</ul>
 <!--        --> 
-<h3>R Code</h3>
 <pre><code class="language-r">
-x <- 3
+show.colors()
 </code></pre>
-<!-- <img src="../assets/images/tplot1.png" alt="tplot example", width="80%"> -->
+<img src="../assets/images/showColors1.png" alt="show.colors()", width="80%">
+<pre><code class="language-r">
+> colors()[139]
+[1] "forestgreen"
+</code></pre>
 </div>
 </li>
+<!--        -->
+<!--        -->
+<!--        -->
 </section>
 </main>
 </div> <!-- End of container-box -->
