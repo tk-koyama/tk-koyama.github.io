@@ -47,7 +47,7 @@
     <aside class="sidebar">
         <img src="../assets/images/tatsuki-koyama.png" alt="Tatsuki Koyama" class="profile-pic">
         <h2>Tatsuki Koyama</h2>
-        <p>Department of Biostatistics<br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
+        <p><a href="https://www.vumc.org/biostatistics/">Department of Biostatistics</a><br><a href="https://vanderbilt.edu">Vanderbilt University</a><br><a href="https://www.vumc.org/main/home">Medical Center</a></p>
         <p>Nashville, TN</p>
             <ul class="social-links"> 
             <li><a href="mailto:tatsuki.koyama@vumc.org"><i class="fa-solid fa-envelope"></i> Email</a></li>
@@ -74,7 +74,7 @@
 <ul>
 <li><button onclick="toggleVisibility('groupSum')">groupSum</button>
 <div id="groupSum" style="display: none;">
-<p><strong>groupSum</strong> computes and displays data summary for a numeric vector <cod>v</cod>, optionally by groups <cod>g</cod>. Missing group id's are treated as a separate group.</p>
+<p><strong>groupSum</strong> computes and displays a summary of a numeric vector <cod>v</cod>, optionally by grouped by <cod>g</cod>. Missing group IDs are treated as a separate group.</p>
         <!--    -->
 <pre><code class="language-r">
 groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL) 
@@ -86,7 +86,7 @@ groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
 <div id="editRedCapData" style="display: none;">
-    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.</p>
+    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> created by REDCap's .r file.</p>
 <pre><code class="language-r">
 editRedCapData(d, changeNames=TRUE)
 </code></pre>
@@ -97,7 +97,7 @@ editRedCapData(d, changeNames=TRUE)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('multTime')">multTime</button>
     <div id="multTime" style="display: none;">
-        <p><strong>multTime</strong> multiplies time value by <cod>multiplier</cod>. This function is used to answer questions like, "If I run 4:12/km for 42.195km, how long will that take? <cod>lap</cod> can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
+        <p><strong>multTime</strong> multiplies a time value by <cod>multiplier</cod>. This function answers questions such as:<br>"If I run 4:12/km for 42.195km, how long will it take?<br> The <cod>lap</cod> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
 <pre><code class="language-r">
 multTime(lap="4:12", multiplier=42.195)
 multTime(lap=4.12, multiplier=42.195)
@@ -109,7 +109,7 @@ multTime(lap=4.12, multiplier=42.195)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('addTime')">addTime</button>
     <div id="addTime" style="display: none;">
-        <p><strong>addTime</strong> adds time vector, <cod>times</cod>, which can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as the input of this function. So, you can ask something like, "If I run 4:02/km for 5km then 3:55/km for 7km, what is the total time?</p>
+        <p><strong>addTime</strong> sums time values from the vector <cod>times</cod>, which can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as inputs for this function. For example:<br>"If I run 4:02/km for 5km, then 3:55/km for 7km, what is the total time?</p>
 <pre><code class="language-r">
 addTime( c(multTime("4:02",5), multTime(3.55,7)))
 </code></pre>
