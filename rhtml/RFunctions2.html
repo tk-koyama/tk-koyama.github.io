@@ -75,9 +75,21 @@
 <li><button onclick="toggleVisibility('groupSum')">groupSum</button>
 <div id="groupSum" style="display: none;">
 <p><strong>groupSum</strong> computes and displays a summary of a numeric vector <cod>v</cod>, optionally by grouped by <cod>g</cod>. Missing group IDs are treated as a separate group.</p>
-        <!--    -->
-<pre><code class="language-r">
-groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL) 
+<!--    -->
+<pre><code>
+data(iris)
+iris$Species[seq(1,150,length=20)] <- NA ## for demonstration purposes.
+
+groupSum(v=iris$Sepal.Length, g=iris$Species, select_stats=c('-SE'))
+</code></pre>
+
+<pre><code>
+             N Min   Q1 Med   Q3 Max Mean    SD
+setosa      43 4.3 4.80 5.0 5.20 5.8 4.98 0.353
+versicolor  44 4.9 5.57 5.8 6.30 7.0 5.91 0.528
+virginica   43 4.9 6.25 6.5 6.85 7.9 6.57 0.627
+NA.         20 4.6 5.33 5.9 6.55 7.7 5.99 0.842
+Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 </code></pre>
 </div>
 </li>
@@ -86,22 +98,34 @@ groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
 <div id="editRedCapData" style="display: none;">
-    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> created by REDCap's .r file.</p>
-<pre><code class="language-r">
-editRedCapData(d, changeNames=TRUE)
-</code></pre>
+    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> created by REDCap's .r file.
+    <ul>
+        <li>Delete all the numeric vectors when corresponding factor vectors are available.</li>
+        <li>Delete <cod>.factor</cod> from the variable names.</li>
+        <li>Change <cod>.</cod> to <cod>_</cod> in the variable names (optional)
+    </ul>
+    </p>
+<cde>
+d <- editRedCapData(d, changeNames=TRUE)
+</cde>
 </div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('multTime')">multTime</button>
-    <div id="multTime" style="display: none;">
-        <p><strong>multTime</strong> multiplies a time value by <cod>multiplier</cod>. This function answers questions such as:<br>"If I run 4:12/km for 42.195km, how long will it take?<br> The <cod>lap</cod> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
+<div id="multTime" style="display: none;">
+<p><strong>multTime</strong> multiplies a time value by <cod>multiplier</cod>. This function answers questions such as:<br>"If I run 4:12/km for 42.195km, how long will it take?<br> The <cod>lap</cod> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
 <pre><code class="language-r">
-multTime(lap="4:12", multiplier=42.195)
 multTime(lap=4.12, multiplier=42.195)
+# multTime(lap='4:12', multiplier=42.195) # Same
 </code></pre>
+
+<cde>
+[1] "2:57:13"
+</cde>
+
+
 </div>
 </li>
 <!-- ------ --> 

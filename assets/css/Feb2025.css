@@ -200,7 +200,7 @@ main {
     background-color: inherit;
     border-radius: 10px;
     margin-top: -20px;
-    padding: 00px;
+    padding: 20px;
 }
 
 .content cod { /* in line code */
@@ -211,6 +211,16 @@ main {
     color: #d63384;
     padding: 2px 4px;
     border-radius: 4px;
+}
+
+.content cde { 
+    font-size: 1.0rem;
+    font-family: "Courier New", monospace;
+    font-weight: normal;
+    background-color: #f4f4f4;
+    color: #163384;
+    border: 0px solid green;
+    padding: 4px;
 }
 
 /* ----- FUNCTION BUTTONS ----- */
