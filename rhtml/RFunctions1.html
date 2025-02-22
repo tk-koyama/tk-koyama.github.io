@@ -82,11 +82,11 @@
 <h3>Example</h3>
 This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
 <ul>
-    <li><strong>col</strong> and <strong>pch</strong> can be specified at either the individual or group level. In this example, <strong>col</strong> is set at the individual level, while <strong>pch</strong> is assigned at the group level, though this pch variation is unnecessary.</li>
-    <li>The <strong>type</strong> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
-    <li>Points that are closer than <strong>dist</strong> are jittered by <strong>dist</strong>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
-    <li>Box colors and borders are controlled by the <strong>boxcol</strong> and <strong>boxborder</strong> arguments.</li>
-    <li>The <strong>boxplot.pars</strong> argument is passed directly to <strong>boxplot()</strong>, allowing further customization.</li>
+    <li><cod>col</cod> and <cod>pch</cod> can be specified at either the individual or group level. In this example, <cod>col</cod> is set at the individual level, while <cod>pch</cod> is assigned at the group level, though this pch variation is unnecessary.</li>
+    <li>The <cod>type</cod> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
+    <li>Points that are closer than <cod>dist</cod> are jittered by <cod>dist</cod>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
+    <li>Box colors and borders are controlled by the <cod>boxcol</cod> and <cod>boxborder</cod> arguments.</li>
+    <li>The <cod>boxplot.pars</cod> argument is passed directly to <cod>boxplot()</cod>, allowing further customization.</li>
     </ul>
 <!--        -->
 <h3>R Code</h3>
@@ -125,11 +125,11 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 <h3>Example</h3>
 This example demonstrates the available options in <strong>kmplot()</strong>.
 <ul>
-    <li>The <strong>xaxis.at</strong> argument allows you to specify the time points at which the number at risk is displayed.</li>
-    <li><strong>lty</strong>, <strong>col</strong>, and <strong>lwd</strong> can be set individually for each survival and confidence interval line.</li>
-    <li>The <strong>group.names</strong> argument can be used to label groups.</li>
-    <li>The order of groups in the "n risk at" table can be adjusted using <strong>group.order</strong>, <small>so the order roughly matches the appearance of the lines.</small></li>
-    <li>Setting <strong>simple = TRUE</strong> suppresses the "n risk at" table.</li>
+    <li>The <cod>xaxis.at</cod> argument allows you to specify the time points at which the number at risk is displayed.</li>
+    <li><cod>lty</cod>, <cod>col</cod>, and <cod>lwd</cod> can be set individually for each survival and confidence interval line.</li>
+    <li>The <cod>group.names</cod> argument can be used to label groups.</li>
+    <li>The order of groups in the "n risk at" table can be adjusted using <cod>group.order</cod>, <small>so the order roughly matches the appearance of the lines.</small></li>
+    <li>Setting <cod>simple = TRUE</cod> suppresses the "n risk at" table.</li>
     <li>The "n risk at" numbers are right-justified but visually centered. <small>This was the original motivation for creating this function.</small>
 </ul>
 <!--        --> 

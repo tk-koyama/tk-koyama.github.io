@@ -70,30 +70,74 @@
 <!--        -->
 <!-- ------ -->
 <ul>
-<li><button onclick="toggleVisibility('f1-details')">Function 1</button>
-    <div id="f1-details" style="display: none;">
-    <p><strong>Description:</strong> Function 1</p>
-    <pre><code># Example usage in R</code></pre>
+<li><button onclick="toggleVisibility('groupSum')">groupSum</button>
+    <div id="groupSum" style="display: none;">
+        <strong>groupSum</strong> computes and displays data summary for a numeric vector <cod>v</cod>, optionally by groups <cod>g</cod>. Missing group id's are treated as a separate group.
+    <pre><code>groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL) </code></pre>
     </div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('f2-details')">Function 2</button>
-    <div id="f2-details" style="display: none;">
-    <p><strong>Description:</strong> Function 2</p>
-    <pre><code># Example usage in R</code></pre>
+<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
+    <div id="editRedCapData" style="display: none;">
+        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
+    <pre><code class="language-r">editRedCapData(d, changeNames=TRUE)</code></pre>
     </div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('f3-details')">Function 3</button>
-    <div id="f3-details" style="display: none;">
-    <p><strong>Description:</strong> Function 3</p>
-    <pre><code># Example usage in R</code></pre>
+<li><button onclick="toggleVisibility('multTime')">multTime</button>
+    <div id="multTime" style="display: none;">
+        <strong>multTime</strong> multiplies time value by <cod>multiplier</cod>. This function is used to answer questions like, "If I run 4:12/km for 42.195km, how long will that take? <cod>lap</cod> can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).
+<pre><code class="language-r">
+multTime(lap="4:12", multiplier=42.195)
+multTime(lap=4.12, multiplier=42.195)
+</code></pre>
+</div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('addTime')">addTime</button>
+    <div id="addTime" style="display: none;">
+        <strong>addTime</strong> adds time vector, <cod>times</cod>, which can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as the input of this function. So, you can ask something like, "If I run 4:02/km for 5km then 3:55/km for 7km, what is the total time?
+    <pre><code>addTime( c(multTime("4:02",5), multTime(3.55,7)))</code></pre>
     </div>
 </li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
+    <div id="editRedCapData" style="display: none;">
+        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
+    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
+    </div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
+    <div id="editRedCapData" style="display: none;">
+        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
+    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
+    </div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
+    <div id="editRedCapData" style="display: none;">
+        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
+    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
+    </div>
+</li>
+<!-- ------ --> 
+<!--        --> 
+<!-- ------ --> 
+
+
 </ul>
 </div>
 </section>
