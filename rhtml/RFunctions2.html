@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Prism.js CSS for Styling -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
-    <!-- Prism.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-r.min.js"></script>
+<!-- Highlight.js CSS (Choose a theme) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/idea.min.css">
+<!-- Highlight.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script>
+<!-- Initialize Highlight.js -->
+<script>hljs.highlightAll();</script>
 
     <script>
         function toggleVisibility(id) {
@@ -71,26 +73,31 @@
 <!-- ------ -->
 <ul>
 <li><button onclick="toggleVisibility('groupSum')">groupSum</button>
-    <div id="groupSum" style="display: none;">
-        <strong>groupSum</strong> computes and displays data summary for a numeric vector <cod>v</cod>, optionally by groups <cod>g</cod>. Missing group id's are treated as a separate group.
-    <pre><code>groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL) </code></pre>
-    </div>
+<div id="groupSum" style="display: none;">
+<p><strong>groupSum</strong> computes and displays data summary for a numeric vector <cod>v</cod>, optionally by groups <cod>g</cod>. Missing group id's are treated as a separate group.</p>
+        <!--    -->
+<pre><code class="language-r">
+groupSum(v, g=NULL, Combined=TRUE, select_stats=NULL) 
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
-    <div id="editRedCapData" style="display: none;">
-        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
-    <pre><code class="language-r">editRedCapData(d, changeNames=TRUE)</code></pre>
-    </div>
+<div id="editRedCapData" style="display: none;">
+    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.</p>
+<pre><code class="language-r">
+editRedCapData(d, changeNames=TRUE)
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('multTime')">multTime</button>
     <div id="multTime" style="display: none;">
-        <strong>multTime</strong> multiplies time value by <cod>multiplier</cod>. This function is used to answer questions like, "If I run 4:12/km for 42.195km, how long will that take? <cod>lap</cod> can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).
+        <p><strong>multTime</strong> multiplies time value by <cod>multiplier</cod>. This function is used to answer questions like, "If I run 4:12/km for 42.195km, how long will that take? <cod>lap</cod> can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
 <pre><code class="language-r">
 multTime(lap="4:12", multiplier=42.195)
 multTime(lap=4.12, multiplier=42.195)
@@ -102,36 +109,44 @@ multTime(lap=4.12, multiplier=42.195)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('addTime')">addTime</button>
     <div id="addTime" style="display: none;">
-        <strong>addTime</strong> adds time vector, <cod>times</cod>, which can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as the input of this function. So, you can ask something like, "If I run 4:02/km for 5km then 3:55/km for 7km, what is the total time?
-    <pre><code>addTime( c(multTime("4:02",5), multTime(3.55,7)))</code></pre>
-    </div>
+        <p><strong>addTime</strong> adds time vector, <cod>times</cod>, which can be specified using "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as the input of this function. So, you can ask something like, "If I run 4:02/km for 5km then 3:55/km for 7km, what is the total time?</p>
+<pre><code class="language-r">
+addTime( c(multTime("4:02",5), multTime(3.55,7)))
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
-    <div id="editRedCapData" style="display: none;">
-        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
-    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
-    </div>
+<li><button onclick="toggleVisibility('Func 1')">Function 1</button>
+    <div id="Func 1" style="display: none;">
+        <p><strong>Function 1</strong> does this</p>
+<pre><code class="language-r">
+function1(a, b, c)
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
-    <div id="editRedCapData" style="display: none;">
-        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
-    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
-    </div>
+<li><button onclick="toggleVisibility('Func 2')">Function 2</button>
+    <div id="Func 2" style="display: none;">
+        <p><strong>Function 2</strong> does this</p>
+<pre><code class="language-r">
+function2(a, b, c)
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
-    <div id="editRedCapData" style="display: none;">
-        <strong>editRedCapData</strong> cleans the <code>data.frame</code> that REDCap's ".r" file creates.
-    <pre><code>editRedCapData(d, changeNames=TRUE)</code></pre>
-    </div>
+<li><button onclick="toggleVisibility('Func 3')">Function 3</button>
+    <div id="Func 3" style="display: none;">
+        <p><strong>Function 3</strong> does this</p>
+<pre><code class="language-r">
+function3(a, b, c)
+</code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 

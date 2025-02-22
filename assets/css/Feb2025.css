@@ -173,7 +173,14 @@ main {
 .content li {
     list-style-type: disc; /* Removes default bullets */
     margin-left: -4px;
+    margin-bottom: 5px; /* Ensure uniform spacing between list items */
     position: relative;
+}
+
+.content pre {
+    margin-top: 00px !important;
+    margin-bottom: 10px !important;
+    padding: 0px 12px !important; /* Consistent padding */
 }
 
 /* ----- CODE BLOCKS ----- */
@@ -267,4 +274,3 @@ main {
         padding: 5px;
     }
 }
-
