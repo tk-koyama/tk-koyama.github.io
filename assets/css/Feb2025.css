@@ -1,10 +1,22 @@
 /* Feb2025.css */
 
 /* ----- COLOR SCHEME ----- */
- /* Greys */
- #d9d9d9; /* Light grey */
- #bdbdbd; /* Medium grey */
- #252525; /* Dark grey */
+:root {
+    --lighter: #F5FFFA; /* White */
+    --light: #d9d9d9; /* Light grey */
+    --medium: var(--medium); /* Medium grey */
+    --dark: #252525; /* Dark grey */
+    --link: #4169E1; /* Royal blue*/
+    --button: #1E90FF; /* Dodger blue*/
+    --header: #339432; /* Unknown */
+    --h1: #000080; /* Navy blue*/
+    --h2: #000080; /* Navy blue*/
+    --h3: #000080; /* Navy blue*/
+    --royal: #4169E1; /* Royal blue*/
+    --dodger: #1E90FF; /* Dodger blue*/
+    --inlinecode: #000080; /* Navy blue*/
+    --rcode: #000080; 
+}
 
 /* ----- GLOBAL STYLES ----- */
 * {
@@ -12,19 +24,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--medium);
 }
 
 html {
+    background-color: var(--lighter);
     font-size: 16px;
     height: 100%;
-    color: darkgreen;
     overflow-y: scroll; /* Ensures vertical scrollbar is always visible */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #bdbdbd;
-    color: #252525;
+    background-color: var(--medium);
+    color: var(--dark);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +49,7 @@ p {
 }
 
 a {
-    color: royalblue;
+    color: var(--link);
     text-decoration: none;
     padding: 0px 0px;
 }
@@ -53,14 +66,12 @@ a img {
 .navbar {
     max-width: 1100px; /* Match .container-box */
     margin: 0 auto;  /* Center the navbar */
-    background-color: #d9d9d9;
+    background-color: var(--light);
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
 }
-
-
 
 .navbar ul {
     list-style-type: none;
@@ -75,7 +86,7 @@ a img {
     width: 100%;
     margin: 0 auto;
     padding: 10px;
-    background-color: #bdbdbd;
+    background-color: var(--medium);
 }
 
 main {
@@ -87,7 +98,7 @@ main {
 /* ----- SIDEBAR ----- */
 .sidebar {
     width: 30%;
-    background-color: #d9d9d9;
+    background-color: var(--light);
     padding: 10px;
     border-radius: 10px;
     margin-right: 4px;
@@ -103,7 +114,7 @@ main {
 
 .sidebar h1, .sidebar h2 {
     margin-bottom: 5px;
-    color: #252525;
+    color: var(--dark);
 }
 
 .sidebar .social-links {
@@ -122,7 +133,7 @@ main {
 /* ----- MAIN CONTENT ----- */
 .content {
     width: 70%;
-    background-color: #d9d9d9;
+    background-color: var(--light);
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
@@ -139,28 +150,29 @@ main {
 }
 
 .content h1 {
+    color: var(--h1);
+    border-bottom: 2px solid var(--h1);
     margin-bottom: 20px;
-    border-bottom: 2px solid #252525;
-    padding-bottom: 10px;
-    color: #252525;
+    padding-bottom: 4px;
     font-size: 1.5rem;
 }
 
 .content h2 {
+    color: var(--h2);
+    border-bottom: 2px solid var(--h2);
     margin-bottom: 20px;
-    border-bottom: 2px solid #252525;
     padding-bottom: 0px;
     padding-top: 8px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .content h3 {
-    margin-bottom: 0px; /* Reduced space below Example and R Code */
-    border-bottom: 1px solid #252525;
+    color: var(--h3);
+    border-bottom: 2px solid var(--h3);
+    margin-bottom: 0px;
     padding-bottom: 0px;
     padding-top: 4px;
-    color: dodgerblue;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .content .main-image {
@@ -171,64 +183,91 @@ main {
 }
 
 .content li {
-    list-style-type: disc; /* Removes default bullets */
-    margin-left: -4px;
-    margin-bottom: 5px; /* Ensure uniform spacing between list items */
+    list-style-type: disc; /* Ensures bullet points */
+    margin-left: 20px;
+    margin-bottom: 0px;
     position: relative;
 }
 
-.content pre {
-    margin-top: 00px !important;
-    margin-bottom: 10px !important;
-    padding: 0px 12px !important; /* Consistent padding */
+.content li:has(button) {
+    list-style-type: none;
 }
 
 /* ----- CODE BLOCKS ----- */
 .content pre {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #f5f5f5;
+    margin: 10px 0px;
+    padding: 10px 10px;
+    background-color: var(--lighter);
     border-radius: 5px;
     overflow-x: auto;
     overflow-y: auto;
-    padding: 5px 10px;
 }
 
 .content code {
     font-size: 1.0rem;
-    font-family: "Courier New", monospace;
-    background-color: inherit;
+    font-family: "Consolas", "Courier New", monospace;
+    background-color: var(--lighter);
     border-radius: 10px;
-    margin-top: -20px;
-    padding: 20px;
+    padding-top: 20px;
 }
 
-.content cod { /* in line code */
+.content code.inline-code {
     font-size: 1.0rem;
-    font-family: "Courier New", monospace;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    color: #d63384;
-    padding: 2px 4px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-weight: fold;
+    background-color: var(--lighter);
+    color: var(--inlinecode);
+    padding: 2px 2px;
     border-radius: 4px;
 }
 
-.content cde { 
+.content code.regular-code {
     font-size: 1.0rem;
-    font-family: "Courier New", monospace;
+    font-family: "Consolas", "Courier New", monospace;
     font-weight: normal;
-    background-color: #f4f4f4;
-    color: #163384;
-    border: 0px solid green;
-    padding: 4px;
+    background-color: var(--lighter);
+    color: var(--inlinecode);
+    padding: 2px 2px;
+    border-radius: 4px;
+}
+
+/* ----- CODE BLOCK STYLING ----- */
+.content code.code-block {
+    font-size: 0.95rem;
+    font-family: "Consolas", "Courier New", monospace;
+    background-color: var(--lighter); /* Dark background for contrast */
+    color: var(--rcode); /* Light text for readability */
+    padding: 0px 0px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    line-height: 1.2;
+    white-space: pre-wrap /* Ensures proper line breaks */
+}
+
+/* Highlighting Keywords */
+.content code.code-block .keyword {
+    color: #ff79c6; /* Pink - for function names */
+    font-weight: bold;
+}
+
+.content code.code-block .comment {
+    color: #7f8c8d; /* Gray - for comments */
+    font-style: italic;
+}
+
+.content code.code-block .variable {
+    color: #f1fa8c; /* Yellow - for variables */
+}
+
+.content code.code-block .function {
+    color: #50fa7b; /* Green - for functions */
 }
 
 /* ----- FUNCTION BUTTONS ----- */
 .r-functions-list button {
     margin: 4px 0px;
     padding: 4px 8px;
-    background-color: #0044cc;
-    color: white;
+    background-color: var(--button);
+    color: var(--lighter);
     border: none;
     font-size: 1.0rem;
     cursor: pointer;
@@ -237,7 +276,8 @@ main {
 }
 
 .r-functions-list button:hover {
-    background-color: #002a80;
+    background-color: var(--lighter);
+    color: var(--button);
 }
 
 .r-functions-list div {

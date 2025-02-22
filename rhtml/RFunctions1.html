@@ -11,8 +11,8 @@
 <!-- Highlight.js CSS (Choose a theme) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/idea.min.css">
 <!-- Highlight.js Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script> -->
 <!-- Initialize Highlight.js -->
 <script>hljs.highlightAll();</script>
 
@@ -71,7 +71,7 @@
 <p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank"> Download RFunctions1.R (GitHub) </a> </p>
 <ul>
 <!-- ------ --> 
-<!-- tplot -->
+<!-- tplot  -->
 <!--        --> 
 <!-- ------ --> 
 <li>
@@ -82,17 +82,16 @@
 <h3>Example</h3>
 This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
 <ul>
-    <li><cod>col</cod> and <cod>pch</cod> can be specified at either the individual or group level. In this example, <cod>col</cod> is set at the individual level, while <cod>pch</cod> is assigned at the group level, though this pch variation is unnecessary.</li>
-    <li>The <cod>type</cod> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
-    <li>Points that are closer than <cod>dist</cod> are jittered by <cod>dist</cod>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
-    <li>Box colors and borders are controlled by the <cod>boxcol</cod> and <cod>boxborder</cod> arguments.</li>
-    <li>The <cod>boxplot.pars</cod> argument is passed directly to <cod>boxplot()</cod>, allowing further customization.</li>
+    <li><code class="inline-code">col</code> and <code class="inline-code">pch</code> can be specified at either the individual or group level. In this example, <code class="inline-code">col</code> is set at the individual level, while <code class="inline-code">pch</code> is assigned at the group level, though this pch variation is unnecessary.</li>
+    <li>The <code class="inline-code">type</code> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
+    <li>Points that are closer than <code class="inline-code">dist</code> are jittered by <code class="inline-code">dist</code>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
+    <li>Box colors and borders are controlled by the <code class="inline-code">boxcol</code> and <code class="inline-code">boxborder</code> arguments.</li>
+    <li>The <code class="inline-code">boxplot.pars</code> argument is passed directly to <code class="inline-code">boxplot()</code>, allowing further customization.</li>
     </ul>
 <!--        -->
 <h3>R Code</h3>
 <!--        -->
-<pre><code class="language-r">
-set.seed(100)
+<pre><code class="code-block">set.seed(100)
 y <- rnorm(80, 26, 9)
 sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
 group <- paste('Group ', sample(1:4, 40, prob = c(2,5,4,1), replace = TRUE), sep='')
@@ -125,17 +124,16 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 <h3>Example</h3>
 This example demonstrates the available options in <strong>kmplot()</strong>.
 <ul>
-    <li>The <cod>xaxis.at</cod> argument allows you to specify the time points at which the number at risk is displayed.</li>
-    <li><cod>lty</cod>, <cod>col</cod>, and <cod>lwd</cod> can be set individually for each survival and confidence interval line.</li>
-    <li>The <cod>group.names</cod> argument can be used to label groups.</li>
-    <li>The order of groups in the "n risk at" table can be adjusted using <cod>group.order</cod>, <small>so the order roughly matches the appearance of the lines.</small></li>
-    <li>Setting <cod>simple = TRUE</cod> suppresses the "n risk at" table.</li>
+    <li>The <code class="inline-code">xaxis.at</code> argument allows you to specify the time points at which the number at risk is displayed.</li>
+    <li><code class="inline-code">lty</code>, <code class="inline-code">col</code>, and <code class="inline-code">lwd</code> can be set individually for each survival and confidence interval line.</li>
+    <li>The <code class="inline-code">group.names</code> argument can be used to label groups.</li>
+    <li>The order of groups in the "n risk at" table can be adjusted using <code class="inline-code">group.order</code>, <small>so the order roughly matches the appearance of the lines.</small></li>
+    <li>Setting <code class="inline-code">simple = TRUE</code> suppresses the "n risk at" table.</li>
     <li>The "n risk at" numbers are right-justified but visually centered. <small>This was the original motivation for creating this function.</small>
 </ul>
 <!--        --> 
 <h3>R Code</h3>
-<pre><code class="language-r">
-require(survival)
+<pre><code class="code-block">require(survival)
 
 kma <- survfit( Surv(time, status) ~ rx + adhere, data=colon )
 kmplot(kma, mark='', simple=FALSE,
@@ -160,11 +158,10 @@ title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
 <div id="jmplot-details" style="display: none;">
-    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <cod>dist</cod> (which controls jitter) and <cod>jit</cod> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
+    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <code class="inline-code">dist</code> (which controls jitter) and <code class="inline-code">jit</code> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
     <!--        -->
 <h3>Example</h3>
-<pre><code class="language-r">
-set.seed(1220)
+<pre><code class="code-block">set.seed(1220)
 
 x <- rexp(100)
 y <- rexp(100)
@@ -194,8 +191,7 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 -->
 <!--        --> 
 <!-- <h3>R Code</h3>
-<pre><code class="language-r">
-x <- 3
+<pre><code class="code-block">x <- 3
 </code></pre>
 <img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
@@ -206,16 +202,14 @@ x <- 3
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('show.colors-details')">show.colors</button>
 <div id="show.colors-details" style="display: none;">
-    <strong>show.colors()</strong> shows all 657 named colors in R. You can select a color and display its name by running <cod>colors()[n]</cod>.
+    <strong>show.colors()</strong> shows all 657 named colors in R. You can select a color and display its name by running <code class="inline-code">colors()[n]</code>.
 <!--        -->
 <h3>Example</h3>
 <!--        --> 
-<pre><code class="language-r">
-show.colors()
+<pre><code class="code-block">show.colors()
 </code></pre>
 <img src="../assets/images/showColors1.png" alt="show.colors()", width="80%">
-<pre><code class="language-r">
-> colors()[139]
+<pre><code class="code-block">colors()[139]
 [1] "forestgreen"
 </code></pre>
 </div>

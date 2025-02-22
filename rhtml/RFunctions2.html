@@ -11,8 +11,8 @@
 <!-- Highlight.js CSS (Choose a theme) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/idea.min.css">
 <!-- Highlight.js Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script> -->
 <!-- Initialize Highlight.js -->
 <script>hljs.highlightAll();</script>
 
@@ -74,16 +74,14 @@
 <ul>
 <li><button onclick="toggleVisibility('groupSum')">groupSum</button>
 <div id="groupSum" style="display: none;">
-<p><strong>groupSum</strong> computes and displays a summary of a numeric vector <cod>v</cod>, optionally by grouped by <cod>g</cod>. Missing group IDs are treated as a separate group.</p>
-<!--    -->
-<pre><code>
-data(iris)
+    <p><strong>groupSum</strong> computes and displays a summary of a numeric vector <code class="inline-code">v</code>, optionally by grouped by <code class="inline-code">g</code>. Missing group IDs are treated as a separate group.</p>
+<pre><code class="code-block">data(iris)
 iris$Species[seq(1,150,length=20)] <- NA ## for demonstration purposes.
 
 groupSum(v=iris$Sepal.Length, g=iris$Species, select_stats=c('-SE'))
 </code></pre>
 
-<pre><code>
+<pre><code class="code-block">
              N Min   Q1 Med   Q3 Max Mean    SD
 setosa      43 4.3 4.80 5.0 5.20 5.8 4.98 0.353
 versicolor  44 4.9 5.57 5.8 6.30 7.0 5.91 0.528
@@ -98,11 +96,11 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('editRedCapData')">editRedCapData</button>
 <div id="editRedCapData" style="display: none;">
-    <p><strong>editRedCapData</strong> cleans the <code>data.frame</code> created by REDCap's .r file.
+    <p><strong>editRedCapData</strong> cleans the <code class="regular-code">data.frame</code> created by REDCap's .r file.
     <ul>
         <li>Delete all the numeric vectors when corresponding factor vectors are available.</li>
-        <li>Delete <cod>.factor</cod> from the variable names.</li>
-        <li>Change <cod>.</cod> to <cod>_</cod> in the variable names (optional)
+        <li>Delete <code class="inline-code">.factor</code> from the variable names.</li>
+        <li>Change <code class="inline-code">.</code> to <code class="inline-code">_</code> in the variable names (optional)
     </ul>
     </p>
 <cde>
@@ -115,8 +113,8 @@ d <- editRedCapData(d, changeNames=TRUE)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('multTime')">multTime</button>
 <div id="multTime" style="display: none;">
-<p><strong>multTime</strong> multiplies a time value by <cod>multiplier</cod>. This function answers questions such as:<br>"If I run 4:12/km for 42.195km, how long will it take?<br> The <cod>lap</cod> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
-<pre><code class="language-r">
+<p><strong>multTime</strong> multiplies a time value by <code class="inline-code">multiplier</code>. This function answers questions such as:<br>"If I run 4:12/km for 42.195km, how long will it take?<br> The <code class="inline-code">lap</code> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</p>
+<pre><code>
 multTime(lap=4.12, multiplier=42.195)
 # multTime(lap='4:12', multiplier=42.195) # Same
 </code></pre>
@@ -133,8 +131,8 @@ multTime(lap=4.12, multiplier=42.195)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('addTime')">addTime</button>
     <div id="addTime" style="display: none;">
-        <p><strong>addTime</strong> sums time values from the vector <cod>times</cod>, which can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as inputs for this function. For example:<br>"If I run 4:02/km for 5km, then 3:55/km for 7km, what is the total time?</p>
-<pre><code class="language-r">
+        <p><strong>addTime</strong> sums time values from the vector <code class="inline-code">times</code>, which can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric). The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as inputs for this function. For example:<br>"If I run 4:02/km for 5km, then 3:55/km for 7km, what is the total time?</p>
+<pre><code>
 addTime( c(multTime("4:02",5), multTime(3.55,7)))
 </code></pre>
 </div>
@@ -145,7 +143,7 @@ addTime( c(multTime("4:02",5), multTime(3.55,7)))
 <li><button onclick="toggleVisibility('Func 1')">Function 1</button>
     <div id="Func 1" style="display: none;">
         <p><strong>Function 1</strong> does this</p>
-<pre><code class="language-r">
+<pre><code>
 function1(a, b, c)
 </code></pre>
 </div>
@@ -156,7 +154,7 @@ function1(a, b, c)
 <li><button onclick="toggleVisibility('Func 2')">Function 2</button>
     <div id="Func 2" style="display: none;">
         <p><strong>Function 2</strong> does this</p>
-<pre><code class="language-r">
+<pre><code>
 function2(a, b, c)
 </code></pre>
 </div>
@@ -167,7 +165,7 @@ function2(a, b, c)
 <li><button onclick="toggleVisibility('Func 3')">Function 3</button>
     <div id="Func 3" style="display: none;">
         <p><strong>Function 3</strong> does this</p>
-<pre><code class="language-r">
+<pre><code>
 function3(a, b, c)
 </code></pre>
 </div>
