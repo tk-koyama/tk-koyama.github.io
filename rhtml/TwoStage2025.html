@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tatsuki Koyama</title>
+    <title>R functions for two-stage designs. Tatsuki Koyama</title>
     <link rel="stylesheet" href="../assets/css/Feb2025.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- Highlight.js CSS (Choose a theme) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/idea.min.css">
+<!-- Highlight.js Library -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script> -->
+<!-- Initialize Highlight.js -->
+<script>hljs.highlightAll();</script>
+
     <script>
         function toggleVisibility(id) {
             var element = document.getElementById(id);
@@ -66,11 +74,15 @@
 <ul>
 <li><button onclick="toggleVisibility('TwoStageInfProb')">TwoStageInf.prob</button>
     <div id="TwoStageInfProb" style="display: none;">
-        <p>This function displays the design parameters and calculates key design characteristics, including the Type I error rate, power (<cod>POWER</cod>), probabilities of early termination (<cod>PET</cod>), and expected sample sizes (<cod>EN</cod>) under both the null and alternative hypotheses.</p>
-        <p>Note <cod>R1</cod><strong>=r1+1</strong> and <cod>RT</cod><strong>=rT+1</strong>, where <strong>r1</strong> and <strong>rT</strong> are the conventional parameters used. And <strong>Power</strong> under the null hypothesis is the type I error rate.</p> 
+        This function displays the design parameters and calculates key design characteristics, including the Type I error rate, power (<code class="inline-code">POWER</code>), probabilities of early termination (<code class="inline-code">PET</code>), and expected sample sizes (<code class="inline-code">EN</code>) under both the null and alternative hypotheses. 
+        <ul> 
+            <li>Note <code class="inline-code">R1</code><strong>=r1+1</strong> and <code class="inline-code">RT</code><strong>=r+1</strong>, where <strong>r1</strong> and <strong>r</strong> are the conventional parameters used.</li>
+            <li><strong>Power</strong> under the null hypothesis is the type I error rate.</li>
+        </ul>
         <h3>Example</h3>
-        <pre><code> TwoStageInf.prob(p0=0.1, p1=0.3, n1=10, R1=2, nT=29, RT=6)</code></pre>
-    <pre><code>
+<pre><code class="code-block">TwoStageInf.prob(p0=0.1, p1=0.3, n1=10, R1=2, nT=29, RT=6)
+
+<span class="output">
 [[1]]
    p0  p1 n1 R1 nT RT
 1 0.1 0.3 10  2 29  6
@@ -79,21 +91,22 @@
       POWER   PET   EN
 NULL 0.0471 0.736 15.0
 ALT  0.8051 0.149 26.2
-    </code></pre>
-    </div>
+        </span></code></pre>
+</div>
 </li>
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('TwoStageInf')">TwoStageInf</button>
     <div id="TwoStageInf" style="display: none;">
-        <p>This function computes the <em>proper</em> p-value, a confidence interval, and a median estimate based on a two-stage design and observed data. The design is specified using the same parameters as in <strong>TwoStageInf.prob</strong>: <cod>p0</cod>, <cod>p1</cod>, <cod>n1</cod>, <cod>R1</cod>, <cod>nT</cod>, <cod>RT</cod>.</p>
-      <p>Stage 1 data are provided in <cod>x1</cod>. If the actual stage 2 sample size differs from the planned value, it can be specified using <cod>m2</cod>. Stage 2 data are provided in <cod>x2</cod>.
+        This function computes the <em>proper</em> p-value, a confidence interval, and a median estimate based on a two-stage design and observed data. The design is specified using the same parameters as in <strong>TwoStageInf.prob</strong>: <code class="inline-code">p0</code>, <code class="inline-code">p1</code>, <code class="inline-code">n1</code>, <code class="inline-code">R1</code>, <code class="inline-code">nT</code>, <code class="inline-code">RT</code>.
+        <ul><li>Stage 1 data are provided in <code class="inline-code">x1</code>. If the actual stage 2 sample size differs from the planned value, it can be specified using <code class="inline-code">m2</code>.</li>
+            <li>Stage 2 data are provided in <code class="inline-code">x2</code>.</li>
+        </ul>
     <h3>Example</h3>
-    <pre><code>TwoStageInf(p0=0.3, p1=0.5, n1=19, R1=7, nT=39, RT=17, 
-                                                  x1=7, m2=23, x2=10)</code></pre>
+<pre><code class="code-block">TwoStageInf(p0=0.3, p1=0.5, n1=19, R1=7, nT=39, RT=17, x1=7, m2=23, x2=10)
 
-    <pre><code>
+<span class="output">
 $parameter
    p0  p1 n1 R1 nT RT
 1 0.3 0.5 19  7 39 17
@@ -115,8 +128,8 @@ $conf
 
 $med.esti
 [1] 0.405
-</code></pre>
-    </div>
+</span></code></pre>
+</div>
 </li>
 </ul>
 </div>

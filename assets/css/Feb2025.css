@@ -257,6 +257,7 @@ main {
 
 /* ----- FUNCTION BUTTONS ----- */
 .r-functions-list button {
+    font-family: "Consolas", "Courier New", monospace;
     margin: 4px 0px;
     padding: 4px 8px;
     background-color: var(--button);
