@@ -162,7 +162,7 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
         <ul>
             <li><strong>BetaMS</strong> calculates the mean, variance, and standard deviation of a Beta(<code class="inline-code">a</code>, <code class="inline-code">b</code>) distribution.</li>
             <li><strong>plotBetaDis</strong> plots the density function given <code class="inline-code">a</code> and <code class="inline-code">b</code>.</li>
-            <li><strong>BetaParameters</strong> solves for <code class="inline-code">a</code> and <code class="inline-code">b</code> given the mean and variance of the distribution.</li>
+            <li><strong>BetaParameters</strong> solves for <code class="inline-code">a</code> and <code class="inline-code">b</code> given the mean and variance of the distribution. <small>I use this function when I need to simulate probabilities.</small></li>
             <li><strong>BetaCI</strong> computes a 100*<code class="inline-code">p</code>% credible interval given Beta(<code class="inline-code">a</code>, <code class="inline-code">b</code>) as the prior distribution and "<code class="inline-code">x</code> successes out <code class="inline-code">n</code>" as the data.</li>
         </ul>
 <pre><code class="code-block">BetaMS(29, 11)
@@ -220,9 +220,11 @@ title(main='Normal(120, 8)', font.main=3, adj=0)
     <li><code class="inline-code">hr2ps(hr, Time)</code> converts hazard rate to proportion surviving.</li> 
 </ul>
 
-<pre><code>
-function3(a, b, c)
-</code></pre>
+<br>What is the one-year survival proportion if the median survival is 5 months?
+<pre><code class="code-block">ms2ps(ms=5, Time=12)
+<span class="output">
+[1] 0.189
+</span></code></pre>
 </div>
 </li>
 <!-- ------ --> 
