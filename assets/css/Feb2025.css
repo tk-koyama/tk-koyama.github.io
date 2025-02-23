@@ -14,8 +14,12 @@
     --h3: #000080; /* Navy blue*/
     --royal: #4169E1; /* Royal blue*/
     --dodger: #1E90FF; /* Dodger blue*/
-    --inlinecode: #000080; /* Navy blue*/
+    --inlinecode: #007FFF; /* Electric Blue*/
+        /* Electric Blue #007FFF */
+        /* Bright Azure #0078FF  */
+    --regularcode: #000080; /* Navy blue*/
     --rcode: #000080; 
+    --output:#dc143c; 
 }
 
 /* ----- GLOBAL STYLES ----- */
@@ -185,13 +189,18 @@ main {
 .content li {
     list-style-type: disc; /* Ensures bullet points */
     margin-left: 20px;
-    margin-bottom: 0px;
     position: relative;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 .content li:has(button) {
+    margin-left: 20px;
+    padding-top: 0px;
     list-style-type: none;
 }
+
+
 
 /* ----- CODE BLOCKS ----- */
 .content pre {
@@ -206,7 +215,7 @@ main {
 .content code {
     font-size: 1.0rem;
     font-family: "Consolas", "Courier New", monospace;
-    background-color: var(--lighter);
+    background-color: var(--light);
     border-radius: 10px;
     padding-top: 20px;
 }
@@ -214,21 +223,19 @@ main {
 .content code.inline-code {
     font-size: 1.0rem;
     font-family: "Consolas", "Courier New", monospace;
-    font-weight: fold;
-    background-color: var(--lighter);
+    font-weight: bold;
+    background-color: var(--light);
     color: var(--inlinecode);
-    padding: 2px 2px;
-    border-radius: 4px;
+    padding: 0px 0px;
 }
 
 .content code.regular-code {
     font-size: 1.0rem;
     font-family: "Consolas", "Courier New", monospace;
-    font-weight: normal;
-    background-color: var(--lighter);
-    color: var(--inlinecode);
-    padding: 2px 2px;
-    border-radius: 4px;
+    font-weight: bold;
+    background-color: var(--light);
+    color: var(--regularcode);
+    padding: 0px 0px;
 }
 
 /* ----- CODE BLOCK STYLING ----- */
@@ -243,23 +250,9 @@ main {
     white-space: pre-wrap /* Ensures proper line breaks */
 }
 
-/* Highlighting Keywords */
-.content code.code-block .keyword {
-    color: #ff79c6; /* Pink - for function names */
-    font-weight: bold;
-}
-
-.content code.code-block .comment {
-    color: #7f8c8d; /* Gray - for comments */
-    font-style: italic;
-}
-
-.content code.code-block .variable {
-    color: #f1fa8c; /* Yellow - for variables */
-}
-
-.content code.code-block .function {
-    color: #50fa7b; /* Green - for functions */
+.code-block .output {
+    color: var(--output); /* Example: DodgerBlue */
+    font-weight: normal;
 }
 
 /* ----- FUNCTION BUTTONS ----- */
