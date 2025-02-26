@@ -151,7 +151,7 @@ The following arguments are passed to <span class="cxx">plot()</span>, <span cla
     <li><span class="cx">boxplot()</span> range, notch, border, boxwex.</li> 
 </ul>
 
-<h3>R Code</h3>
+<h3>Example</h3>
 <pre><code class="code-block">require(survival)
 set.seed(620)
 y <- rnorm(100, mean=100, sd=40)
@@ -190,18 +190,69 @@ dbplot(y, g, group_names=c('Cat','Bat','Rat'),
 <div id="kmplot-details" style="display: none;">
 <p><strong>kmplot()</strong> draws a Kaplan-Meier curve. </p>
 <!--        -->
-<h3>Example</h3>
-This example demonstrates the available options in <strong>kmplot()</strong>.
+<h3>Inputs</h3>
+<h4>Main Arguments</h4>
 <ul>
-    <li>The <code class="inline-code">xaxis.at</code> argument allows you to specify the time points at which the number at risk is displayed.</li>
-    <li><code class="inline-code">lty</code>, <code class="inline-code">col</code>, and <code class="inline-code">lwd</code> can be set individually for each survival and confidence interval line.</li>
-    <li>The <code class="inline-code">group.names</code> argument can be used to label groups.</li>
-    <li>The order of groups in the "n risk at" table can be changed using <code class="inline-code">group.order</code>, <small>so the order roughly matches the appearance of the lines.</small></li>
-    <li>Setting <code class="inline-code">simple = TRUE</code> suppresses the "n risk at" table.</li>
-    <li>The "n risk at" numbers are right-justified but visually centered. <small>This was the original motivation for creating this function.</small>
+    <li><span class="cx">km</span> Output of <span class="cxx">survfit()</span></li>
+    <li><span class="cx">mark</span> Tick mark style. The same as <span class="cxx">pch</span>.</li>
+    <li><span class="cx">simple</span> If TRUE, the 'at risk' table will not be produced.</li>
+    <li><span class="cx">xaxis.at</span> Specifies time positions where 'at risk' numbers are computed and displayed.</li>
+    <li><span class="cx">xaxis.lab</span> Labels for the x-axis. Useful e.g., when time is in days but labels in year are preferred.</li>
 </ul>
+<h4>line Specifications</h4>
+<ul>
+    <li><span class="cx">lty.surv</span> Line type for survival curves</li>
+    <li><span class="cx">lwd.surv</span> Line width for survival curves</li>
+    <li><span class="cx">col.surv</span> Color for survival curves</li>
+    <li><span class="cx">lty.ci</span> Line type for confidence intervals</li>
+    <li><span class="cx">lwd.ci</span> Line width for confidence intervals</li>
+    <li><span class="cx">col.ci</span> Color for confidence intervals</li>
+
+</ul>
+<h4>At Risk Table</h4>
+<ul>
+    <li><span class="cx">group.names</span> Names displayed in the 'at risk' table and legend.</li>
+    <li><span class="cx">group.order</span> Reorders groups in the 'at risk' table to approximately match appearance of survival curves.</li>
+    <li><span class="cx">extra.left.margin</span> Adds extra space when group names are long.</li>
+    <li><span class="cx">label.n.at.risk</span> If TRUE, labels the 'N at risk' table.</li>
+    <li><span class="cx">draw.lines</span> Draws lines to specifies survival curves. <small>(Not sure why this is optional)</small></li>
+    <li><span class="cx">cex.axis</span> Controls cex.axis and the text size of the 'N at risk' table.</li>
+
+</ul>
+<h4>Figure Appearances</h4>
+<ul>
+    <li><span class="cx">xlab</span> X-axis label</li>
+    <li><span class="cx">ylab</span> Y-axis label</li>
+    <li><span class="cx">main</span> Plot title</li>
+    <li><span class="cx">xlm</span> Passed to xlim</li>
+    <li><span class="cx">ylm</span> Passed to ylim</li>
+
+</ul>
+<h4>Grid</h4>
+<ul>
+    <li><span class="cx">grid</span> If TRUE, draws grid lines. Vertical lines appear at <span class="cxx">xaxis.at</span> locations, and horizontal lines at <span class="cxx">pretty(0,1)</span> locations.</li>
+    <li><span class="cx">lty.grid</span> Line type for grid</li>
+    <li><span class="cx">lwd.grid</span> Line width for grid</li>
+    <li><span class="cx">col.grid</span> Color for grid</li>
+
+</ul>
+<h4>Legend</h4>
+<ul>
+    <li><span class="cx">legend</span> Enables/disables the legend</li>
+    <li><span class="cx">loc.legend</span> Controls legend position</li>
+
+</ul>
+<h4>Other</h4>
+<ul>
+    <li><span class="cx">add</span> If TRUE, adds to an existing plot.</li>
+    <li><span class="cx">returnOutput</span> If TRUE, returns the output of <span class="cxx">survfit()</span>.</li>
+        <li><span class="cx">...</span> Additional arguments passed to <span class="cxx">par()</span>.</li>
+</ul>
+
+<br>
+
 <!--        --> 
-<h3>R Code</h3>
+<h3>Example</h3>
 <pre><code class="code-block">require(survival)
 
 kma <- survfit( Surv(time, status) ~ rx + adhere, data=colon )
@@ -248,7 +299,7 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
 <div id="dsplot-details" style="display: none;">
-    <p>(Discrete scatter plot) The idea was to show continuous data with lots of ties effectively. <small>This is no longer being developed. Use jitter() function carefully.</small></p>
+<p><strong>Deprecated</strong>. (Discrete scatter plot) The idea was to show continuous data with lots of ties effectively. <small>This is no longer being developed. Use jitter() function carefully.</small></p>
 <!--        -->
 <!-- <h3>Example</h3>
 <p>This example demonstrates the available options in <strong>...</strong>.</p>
@@ -259,7 +310,7 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </ul>
 -->
 <!--        --> 
-<!-- <h3>R Code</h3>
+<!-- <h3>Example</h3>
 <pre><code class="code-block">x <- 3
 </code></pre>
 <img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
@@ -291,7 +342,7 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 <li>
 <button onclick="toggleVisibility('tplot-details')">tplot</button>
 <div id="tplot-details" style="display: none;">
-<p><strong>Deprecated</strong>: <code class="inline-code">tplot()</code> is no longer maintained. Please use <code class="inline-code">dbplot()</code> instead.</p>
+<p><strong>Deprecated</strong>. <code class="inline-code">tplot()</code> is no longer maintained. Please use <code class="inline-code">dbplot()</code> instead.</p>
 <p>tplot() is an alternative to boxplot(). It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
 <!--        -->
 <h3>Example</h3>
@@ -304,7 +355,7 @@ This example demonstrates the various options available in <strong>tplot()</stro
     <li>The <code class="inline-code">boxplot.pars</code> argument is passed directly to <code class="inline-code">boxplot()</code>, allowing further customization.</li>
     </ul>
 <!--        -->
-<h3>R Code</h3>
+<h3>Example</h3>
 <!--        -->
 <pre><code class="code-block">set.seed(100)
 y <- rnorm(80, 26, 9)
