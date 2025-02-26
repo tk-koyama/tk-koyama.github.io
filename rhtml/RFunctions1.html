@@ -68,50 +68,120 @@
 <div class="r-functions-list">
 <h2>Custom Figures</h2>
 <p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank"> Download RFunctions1.R (GitHub) </a> </p>
+
+
+
 <ul>
 <!-- ------ --> 
-<!-- tplot  -->
+<!-- dbplot  -->
 <!--        --> 
 <!-- ------ --> 
 <li>
-<button onclick="toggleVisibility('tplot-details')">tplot</button>
-<div id="tplot-details" style="display: none;">
-<p><strong>tplot()</strong> is an alternative to <strong>boxplot()</strong>. It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
-<!--        -->
-<h3>Example</h3>
-This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
+<button onclick="toggleVisibility('dbplot-details')">dbplot</button>
+<div id="dbplot-details" style="display: none;">
+<p><strong>dbplot()</strong> is a dot plot/box plot that displays individual data points, with automatic jittering when needed.</p>
+
+<p>Its predecessor, <code class="inline-code">tplot()</code>, was written over a decade ago. This new <code class="inline-code">dbplot()</code> builds upon it, offering enhanced functionality. While <code class="inline-code">beeswarm()</code> in beeswarm package provides similar capabilities, <code class="inline-code">dbplot()</code> includes controls that better align with my taste and preferences.</p>
+
+<h3>Inputs</h3> Only <span class="cx">y</span> is absolutely required.
+<h4>Main arguments</h4>
 <ul>
-    <li><code class="inline-code">col</code> and <code class="inline-code">pch</code> can be specified at either the individual or group level. In this example, <code class="inline-code">col</code> is set at the individual level, while <code class="inline-code">pch</code> is assigned at the group level, though this pch variation is unnecessary.</li>
-    <li>The <code class="inline-code">type</code> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
-    <li>Points that are closer than <code class="inline-code">dist</code> are jittered by <code class="inline-code">dist</code>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
-    <li>Box colors and borders are controlled by the <code class="inline-code">boxcol</code> and <code class="inline-code">boxborder</code> arguments.</li>
-    <li>The <code class="inline-code">boxplot.pars</code> argument is passed directly to <code class="inline-code">boxplot()</code>, allowing further customization.</li>
-    </ul>
-<!--        -->
+    <li><span class="cx">y</span> A numeric vector to be plotted.</li>
+    <li><span class="cx">g</span> A grouping vector.</li>
+    <li><span class="cx">clustering_distance</span> Controls which data points are considered part of the same cluster and thus jittered. 
+        <ul><li>If <span class="cxx">NULL</span>, the function determines a reasonable value, and it is returned if <span class="cxx">output=TRUE</span>.</li> 
+            <li>Setting <span class="cxx">clustering_distance=0</span> disables jittering.</li>
+        </ul></li>
+    <li><span class="cx">jitter_amount</span> Controls jitter distance.
+        <ul><li>If <span class="cxx">NULL</span>, the function determines a reasonable value, and it is returned if <span class="cxx">output=TRUE</span>.</li>
+            <li>Setting <span class="cxx">jittering_amount=0</span> disables jittering.</li>
+        </ul></li>
+    <li><span class="cx">output</span> If TRUE, returns the clustering result, <span class="cxx">clustering_distance</span>, and <span class="cxx">jittering_amount</span>.</li>
+    <li><span class="cx">group_names</span> A vector of group names, defaulting to the factor levels of <span class="cxx">g</span>. </li>
+    <li><span class="cx">group_positions</span> By default, data are plotted at <span class="cxx">x=1, 2, 3, ...</span> unless <span class="cxx">group_positions</span> are specified.</li>
+</ul>
+<h4>Color and Point Character</h4>
+<ul>
+    <li><span class="cx">indiv_col</span> A vector of individula colors for <span class="cxx">y</span>.</li>
+    <li><span class="cx">group_col</span> Specifies group colors, 
+        <ul><li>Each group can have different colors, but this is redundant information.</li> 
+            <li>If a single color is provided, all data points are drawn in that color.</li>
+        </ul>
+    <li><span class="cx">indiv_pch</span> See <span class="cxx">indiv_col</span>.</li>
+    <li><span class="cx">group_pch</span> See <span class="cxx">group_col</span>.</li>
+</ul>
+<h4>Handling Missing Group</h4>
+<ul>
+    <li><span class="cx">NA_as_group</span> If TRUE, missing values in <span class="cxx">g</span> are treated as a separate group.</li>
+    <li><span class="cx">NA_group_name</span> Defaults to "Missing".</li>
+    <li><span class="cx">NA_group_position</span> The plotting position of the missing group, defaulting to the far right.</li>
+    <li><span class="cx">NA_group_col</span> The color for the "Missing" group.</li> 
+    <li><span class="cx">NA_group_pch</span> The pch (plotting character) for the "Missing" group.</li>
+</ul>
+<h4>Boxplot</h4>
+<ul><li><span class="cx">box_col</span> Boxplot colors, which can be specified for each group.</li>
+    <li><span class="cx">NA_box_col</span> Boxplot color for the "Missing" group.</li>
+</ul>
+<h4>Other Specifications</h4>
+<ul>
+    <li><span class="cx">grid_x</span> Draws horizontal grid lines at specified values.</li>
+    <li><span class="cx">grid_y</span> Draws vertical grid lines at specified values. <small>(a little silly)</small></li>
+    <li><span class="cx">show_n</span> If TRUE, displays sample sizes.</li>
+</ul>
+    
+<h4>Figure Type Options</h4>
+    <ul>
+    <li><span class="cx">fig_type</span>Figure type options.
+        <ul><li><span class="cxx">b</span>: Boxplot</li> 
+            <li><span class="cxx">d</span>: Dot plot</li>
+            <li><span class="cxx">db</span>: Dot over boxplot</li>
+            <li><span class="cxx">bd</span>: Box over dot plot (very silly)</li>
+        </ul>
+    <li><span class="cx">NA_fig_type</span> Figure type for "Missing" group.</li>
+</ul>
+
+<h4>Additional Inputs</h4> 
+<ul>
+    <li><span class="cx">grid_par</span> A list of paraameters to pass to the <span class="cxx">abline()</span> function for drawing grid lines. (<span class="cxx">col</span>, <span class="cxx">lty</span>, <span class="cxx">lwd</span>).  </li>
+</ul>
+The following arguments are passed to <span class="cxx">plot()</span>, <span class="cxx">points()</span>, <span class="cxx">boxplot()</span> functions.
+<ul>
+    <li><span class="cx">plot()</span> main, sub, xlab, ylab, xlim, ylim, axes, frame.plot.</li>
+    <li><span class="cx">points()</span> cex, bg.</li> 
+    <li><span class="cx">boxplot()</span> range, notch, border, boxwex.</li> 
+</ul>
+
 <h3>R Code</h3>
-<!--        -->
-<pre><code class="code-block">set.seed(100)
-y <- rnorm(80, 26, 9)
-sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
-group <- paste('Group ', sample(1:4, 40, prob = c(2,5,4,1), replace = TRUE), sep='')
+<pre><code class="code-block">require(survival)
+set.seed(620)
+y <- rnorm(100, mean=100, sd=40)
+g <- factor(sample(c('C','B','R'), length(y), rep=TRUE), levels=c('C','B','R'))
+some_factor <- sample(c('A','B'), length(y), rep=TRUE)
+    color_map <- c('A'='darkorange', 'B'='mediumslateblue')
+    colors <- color_map[some_factor]
+        y[ sample(seq_along(y), 5, rep=FALSE) ] <- NA
+        g[ sample(seq_along(g), 4, rep=FALSE) ] <- NA
 
-d <- data.frame(y, sex, group)
-        rm(y,sex,group)
-
-tplot(y ~ group, data=d, ylim=c(0,50),
-    las=1, cex=1, cex.axis=1, bty='L',
-    show.n=TRUE, dist=0.5, jit=0.07, type=c('b','bd','db','d'),
-    group.pch=TRUE, pch=c(15,17,20,19),
-    group.col=FALSE, col=c('orange','darkgreen')[c(sex)], 
-    boxcol=c('dodgerblue','magenta', 'lightgrey', 'pink'), 
-    boxborder=grey(0.2),
-    boxplot.pars=list(notch=TRUE, boxwex=0.5)
-)
+dbplot(y, g, group_names=c('Cat','Bat','Rat'), 
+           indiv_col=colors, group_pch=19, 
+           NA_as_group=TRUE, NA_group_name='?', NA_group_position=5,
+           box_col=c('grey80','grey90','lightgoldenrodyellow'),
+           grid_y=seq(0,250,by=50), show_n=TRUE, 
+           fig_type=c('b','d','db'), NA_fig_type='d', 
+           grid_par=list(col='skyblue', lty=1, lwd=1), 
+           clustering_distance=NULL, jitter_amount=NULL,
+           ylim=c(0,250), xlab='Animal', ylab='Score', # passed to plot()
+           cex=1.2, # passed to points()
+           boxwex=0.6, border='royalblue' # passed to boxplot()
+           )
 </code></pre>
-<!--        -->
-<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
+
+<img src="../assets/images/dbplot1.png" alt="jmplot example", width="80%">
+
 </div>
 </li>
+
+
 <!-- ------ -->
 <!-- kmplot -->
 <!--        -->
@@ -214,9 +284,57 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </span></code></pre>
 </div>
 </li>
+<!-- ------ --> 
+<!-- tplot  -->
+<!--        --> 
+<!-- ------ --> 
+<li>
+<button onclick="toggleVisibility('tplot-details')">tplot</button>
+<div id="tplot-details" style="display: none;">
+<p><strong>Deprecated</strong>: <code class="inline-code">tplot()</code> is no longer maintained. Please use <code class="inline-code">dbplot()</code> instead.</p>
+<p>tplot() is an alternative to boxplot(). It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
 <!--        -->
+<h3>Example</h3>
+This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
+<ul>
+    <li><code class="inline-code">col</code> and <code class="inline-code">pch</code> can be specified at either the individual or group level. In this example, <code class="inline-code">col</code> is set at the individual level, while <code class="inline-code">pch</code> is assigned at the group level, though this pch variation is unnecessary.</li>
+    <li>The <code class="inline-code">type</code> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
+    <li>Points that are closer than <code class="inline-code">dist</code> are jittered by <code class="inline-code">dist</code>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
+    <li>Box colors and borders are controlled by the <code class="inline-code">boxcol</code> and <code class="inline-code">boxborder</code> arguments.</li>
+    <li>The <code class="inline-code">boxplot.pars</code> argument is passed directly to <code class="inline-code">boxplot()</code>, allowing further customization.</li>
+    </ul>
 <!--        -->
+<h3>R Code</h3>
 <!--        -->
+<pre><code class="code-block">set.seed(100)
+y <- rnorm(80, 26, 9)
+sex <- factor(sample(c('Female', 'Male'), 80, TRUE))
+group <- paste('Group ', sample(1:4, 40, prob = c(2,5,4,1), replace = TRUE), sep='')
+
+d <- data.frame(y, sex, group)
+        rm(y,sex,group)
+
+tplot(y ~ group, data=d, ylim=c(0,50),
+    las=1, cex=1, cex.axis=1, bty='L',
+    show.n=TRUE, dist=0.5, jit=0.07, type=c('b','bd','db','d'),
+    group.pch=TRUE, pch=c(15,17,20,19),
+    group.col=FALSE, col=c('orange','darkgreen')[c(sex)], 
+    boxcol=c('dodgerblue','magenta', 'lightgrey', 'pink'), 
+    boxborder=grey(0.2),
+    boxplot.pars=list(notch=TRUE, boxwex=0.5)
+)
+</code></pre>
+<!--        -->
+<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
+</div>
+</li>
+
+
+
+
+
+
+
 </section>
 </main>
 </div> <!-- End of container-box -->

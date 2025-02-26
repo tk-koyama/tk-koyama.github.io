@@ -14,12 +14,15 @@
     --h3: #000080; /* Navy blue*/
     --royal: #4169E1; /* Royal blue*/
     --dodger: #1E90FF; /* Dodger blue*/
-    --inlinecode: #007FFF; /* Electric Blue*/
+    --inlinecode: #4169E1; /* Royal blue*/
         /* Electric Blue #007FFF */
         /* Bright Azure #0078FF  */
     --regularcode: #000080; /* Navy blue*/
     --rcode: #000080; 
-    --output:#dc143c; 
+    --output: #dc143c; 
+    --red: #0078FF; /* Bright Azure */
+    --codehc: orangered;
+    --bgchc: #fffbe6;
 }
 
 /* ----- GLOBAL STYLES ----- */
@@ -254,6 +257,25 @@ main {
     color: var(--output); /* Example: DodgerBlue */
     font-weight: normal;
 }
+
+.content .cx{
+    font-family: "Fira Code", "Consolas", monospace;
+    color: var(--codehc);
+    background-color: var(--bgchc);
+    font-weight: normal;
+    padding: 2px 4px;
+    border-radius: 3px;
+    }
+
+.content .cxx{
+    font-family: "Fira Code", "Consolas", monospace;
+    color: var(--dodger);
+    font-weight: normal;
+    background-color: inherit;
+    padding: 0px 0px;
+    border-radius: 0px;
+    }
+
 
 /* ----- FUNCTION BUTTONS ----- */
 .r-functions-list button {
