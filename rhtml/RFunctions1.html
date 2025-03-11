@@ -69,8 +69,6 @@
 <h2>Custom Figures</h2>
 <p><a href="https://github.com/tk-koyama/rFunctions/blob/main/RFunctions1.R" target="_blank"> Download RFunctions1.R (GitHub) </a> </p>
 
-
-
 <ul>
 <!-- ------ --> 
 <!-- dbplot  -->
@@ -81,7 +79,7 @@
 <div id="dbplot-details" style="display: none;">
 <p><strong>dbplot()</strong> is a dot plot/box plot that displays individual data points, with automatic jittering when needed.</p>
 
-<p>Its predecessor, <code class="inline-code">tplot()</code>, was written over a decade ago. This new <code class="inline-code">dbplot()</code> builds upon it, offering enhanced functionality. While <code class="inline-code">beeswarm()</code> in beeswarm package provides similar capabilities, <code class="inline-code">dbplot()</code> includes controls that better align with my taste and preferences.</p>
+<p>Its predecessor, <code class="cxx">tplot()</code>, was written over a decade ago. This new <code class="cxx">dbplot()</code> builds upon it, offering enhanced functionality. While <code class="cxx">beeswarm()</code> in beeswarm package provides similar capabilities, <code class="cxx">dbplot()</code> includes controls that better align with my taste and preferences.</p>
 
 <h3>Inputs</h3> Only <span class="cx">y</span> is absolutely required.
 <h4>Main arguments</h4>
@@ -278,7 +276,7 @@ title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
 <div id="jmplot-details" style="display: none;">
-    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <code class="inline-code">dist</code> (which controls jitter) and <code class="inline-code">jit</code> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
+    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <code class="cxx">dist</code> (which controls jitter) and <code class="cxx">jit</code> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
     <!--        -->
 <h3>Example</h3>
 <pre><code class="code-block">set.seed(1220)
@@ -317,12 +315,12 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </div>
 </li>
 -->
-<!-- ------ --> 
+<!-- ----------- --> 
 <!-- show.colors --> 
-<!-- ------ --> 
+<!-- ----------- --> 
 <li><button onclick="toggleVisibility('show.colors-details')">show.colors</button>
 <div id="show.colors-details" style="display: none;">
-    <strong>show.colors()</strong> shows all 657 named colors in R. You can select a color and display its name by running <code class="inline-code">colors()[n]</code>.
+    <strong>show.colors()</strong> shows all 657 named colors in R. You can select a color and display its name by running <code class="cxx">colors()[n]</code>.
 <!--        -->
 <h3>Example</h3>
 <!--        --> 
@@ -335,6 +333,53 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </span></code></pre>
 </div>
 </li>
+<!-- ------------ --> 
+<!-- text.with.bg --> 
+<!-- ------------ --> 
+<li><button onclick="toggleVisibility('text.with.bg-details')">text.with.bg</button>
+<div id="text.with.bg-details" style="display: none;">
+    <strong>text.with.bg()</strong> adds text to a plot with a background rectangle, which expands proportionally based on plot scaling.
+<!--        -->
+<h3>Inputs</h3>
+<h4>Main Arguments</h4>
+<ul>
+    <li><span class="cx">x.pos</span> Position of the text box on the x-axis (upper-left corner).</li>
+    <li><span class="cx">y.pos</span> Position of the text box on the y-axis (upper-left corner).</li>
+    <li><span class="cx">txt</span> The text to be displayed.</li>
+</ul>
+<h4>Padding & Sizing</h4>
+<ul>
+    <li><span class="cx">x.pad</span> Horizontal padding around the text, relative to the plot size (%).</li>
+    <li><span class="cx">y.pad</span> Veritcal padding around the text, relative to the plot size (%).</li>
+</ul>
+<h4>Appearance</h4>
+<ul>
+    <li><span class="cx">col</span> Color of the text.</li>
+    <li><span class="cx">bkgr</span> Background color of the text box. Set to <code class="cxx">NA</code> for transparency.</li>
+    <li><span class="cx">border</span> Color of the rectangle border. Defaults to <code class="cxx">NA</code> (no border).</li>
+</ul>
+<h4>Additional Arguments</h4>
+<ul>
+    <li><span class="cx">...</span> Passed to `text()` and `strwidth()`/`strheight()`, allowing customization of font size (`cex`) and style (`font`),</li>
+</ul>
+<!--        -->
+<h3>Example</h3>
+<pre><code class="code-block">
+set.seed(620)
+x <- sample(4:14, 100, replace=TRUE) + rnorm(100,0,1)
+y <- x + rnorm(100, 0, 3)
+x[100] <- 15.2 ; y[100] <- 3.1
+
+plot(x,y, xlim=c(0,20), ylim=c(0,20), panel.first=grid(nx=NULL, ny=NULL,lty=1, col='lightblue'))
+
+txt <- paste('Say something','\n','interesting here.', sep='')
+text.with.bg(x.pos=15.5, y.pos=2.5, txt=txt, col='royalblue', bkgr='thistle1', x.pad=2, y.pad=2,
+              border='dodgerblue', cex=0.8, font=4, family='serif')
+</code></pre>
+<img src="../assets/images/textwithbg.png" alt="text.with.bg example", width="80%">
+</div>
+</li>
+
 <!-- ------ --> 
 <!-- tplot  -->
 <!--        --> 
@@ -342,17 +387,17 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 <li>
 <button onclick="toggleVisibility('tplot-details')">tplot</button>
 <div id="tplot-details" style="display: none;">
-<p><strong>Deprecated</strong>. <code class="inline-code">tplot()</code> is no longer maintained. Please use <code class="inline-code">dbplot()</code> instead.</p>
+    <p style="margin-bottom: 60px;"><strong>Deprecated</strong>. <code class="cxx">tplot()</code> is no longer maintained. Please use <code class="cxx">dbplot()</code> instead.</p>
 <p>tplot() is an alternative to boxplot(). It allows individual data points to be displayed, either in the foreground or background, with jittering if necessary.</p>
 <!--        -->
 <h3>Example</h3>
 This example demonstrates the various options available in <strong>tplot()</strong>. While this particular example is not the most effective way to visualize these data -due to unnecessary variation in color and point type- it highlights the function's customization features.
 <ul>
-    <li><code class="inline-code">col</code> and <code class="inline-code">pch</code> can be specified at either the individual or group level. In this example, <code class="inline-code">col</code> is set at the individual level, while <code class="inline-code">pch</code> is assigned at the group level, though this pch variation is unnecessary.</li>
-    <li>The <code class="inline-code">type</code> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
-    <li>Points that are closer than <code class="inline-code">dist</code> are jittered by <code class="inline-code">dist</code>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
-    <li>Box colors and borders are controlled by the <code class="inline-code">boxcol</code> and <code class="inline-code">boxborder</code> arguments.</li>
-    <li>The <code class="inline-code">boxplot.pars</code> argument is passed directly to <code class="inline-code">boxplot()</code>, allowing further customization.</li>
+    <li><code class="cxx">col</code> and <code class="cxx">pch</code> can be specified at either the individual or group level. In this example, <code class="cxx">col</code> is set at the individual level, while <code class="cxx">pch</code> is assigned at the group level, though this pch variation is unnecessary.</li>
+    <li>The <code class="cxx">type</code> argument controls the plot style: <strong>b</strong> (box only), <strong>d</strong> (dots only), <strong>bd</strong> (box in front of dots), and <strong>db</strong> (dots in front of the box).</li>
+    <li>Points that are closer than <code class="cxx">dist</code> are jittered by <code class="cxx">dist</code>. <small>This implementation may be incorrect. -try different values to see its impact.</small></li>
+    <li>Box colors and borders are controlled by the <code class="cxx">boxcol</code> and <code class="cxx">boxborder</code> arguments.</li>
+    <li>The <code class="cxx">boxplot.pars</code> argument is passed directly to <code class="cxx">boxplot()</code>, allowing further customization.</li>
     </ul>
 <!--        -->
 <h3>Example</h3>
@@ -379,12 +424,6 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 <img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
-
-
-
-
-
-
 
 </section>
 </main>
