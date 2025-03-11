@@ -73,7 +73,7 @@
 <ul>
 <li><button onclick="toggleVisibility('groupSum')">groupSum</button>
 <div id="groupSum" style="display: none;">
-    <p><strong>groupSum</strong> computes and displays a summary of a numeric vector <code class="inline-code">v</code>, optionally by grouped by <code class="inline-code">g</code>. Missing group IDs are treated as a separate group.</p>
+    <p><strong>groupSum</strong> computes and displays a summary of a numeric vector <code class="cxx">v</code>, optionally by grouped by <code class="cxx">g</code>. Missing group IDs are treated as a separate group.</p>
 <pre><code class="code-block">data(iris)
 iris$Species[seq(1,150,length=20)] <- NA ## for demonstration purposes.
 
@@ -97,8 +97,8 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
     <strong>editRedCapData</strong> cleans the <code class="regular-code">data.frame</code> created by REDCap's .r file.
     <ul>
         <li>Delete all the numeric vectors when corresponding factor vectors are available.</li>
-        <li>Delete <code class="inline-code">.factor</code> from the variable names.</li>
-        <li>Change <code class="inline-code">.</code> to <code class="inline-code">_</code> in the variable names (optional)
+        <li>Delete <code class="cxx">.factor</code> from the variable names.</li>
+        <li>Change <code class="cxx">.</code> to <code class="cxx">_</code> in the variable names (optional)
     </ul>
 <pre><code class="code-block">d <- editRedCapData(d, changeNames=TRUE)
 </code></pre>
@@ -109,8 +109,8 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('multTime')">multTime</button>
 <div id="multTime" style="display: none;">
-    <strong>multTime</strong> multiplies a time value, <code class="inline-code">lap</code>, by <code class="inline-code">multiplier</code>.<br>This function answers questions such as: <em>If I run 4:12/km for 42.195km, how long will it take?</em> 
-    <ul><li>The <code class="inline-code">lap</code> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</li></ul>
+    <strong>multTime</strong> multiplies a time value, <code class="cxx">lap</code>, by <code class="cxx">multiplier</code>.<br>This function answers questions such as: <em>If I run 4:12/km for 42.195km, how long will it take?</em> 
+    <ul><li>The <code class="cxx">lap</code> argument can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).</li></ul>
 <!--        --> 
 <pre><code class="code-block">multTime(lap=4.12, multiplier=42.195)
 # multTime(lap='4:12', multiplier=42.195) # Same
@@ -123,7 +123,7 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('addTime')">addTime</button>
 <div id="addTime" style="display: none;">
-    <strong>addTime</strong> sums time values from the vector <code class="inline-code">times</code>, which can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).
+    <strong>addTime</strong> sums time values from the vector <code class="cxx">times</code>, which can be specified in "HH:MM:SS" or "MM:SS" format (character string) or MM.SS format (numeric).
     <ul><li>The outputs of <strong>multTime</strong> and <strong>addTime</strong> can be used as inputs for this function. For example, to answer <em>If I run 4:02/km for 5km, then 3:55/km for 7km, what is the total time?</em></li></ul>
 <!--        --> 
 <pre><code class="code-block">addTime( c(multTime("4:02",5), multTime(3.55,7)))
@@ -137,14 +137,14 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <li><button onclick="toggleVisibility('BinPower')">BinPower</button>
     <div id="BinPower" style="display: none;">
         <strong>BinPower</strong> finds the critical value(s) for one-sample Binomial test.
-        <ul><li><code class="inline-code">Xcr</code> in the output is the critical value (inclusive). H<sub>0</sub> is rejected if X is <code class="inline-code">Xcr_high</code> or higher, or X is <code class="inline-code">Xcr_low</code> or lower. 
+        <ul><li><code class="cxx">Xcr</code> in the output is the critical value (inclusive). H<sub>0</sub> is rejected if X is <code class="cxx">Xcr_high</code> or higher, or X is <code class="cxx">Xcr_low</code> or lower. 
             </li>
             <pre><code class="code-block">BinPower(n=50, p0=0.2, p1=0.4, alp=0.05, two.sided=FALSE)
 <span class="output">
    n  p0  p1  alp two.sided Xcr_low Xcr_high  typeI Power
 1 50 0.2 0.4 0.05     FALSE      NA       16 0.0308 0.904
 </span></code></pre>
-<li>For two-sided test, type I error rate, <code class="inline-code">alp</code>, is divided by 2.</li></ul>
+<li>For two-sided test, type I error rate, <code class="cxx">alp</code>, is divided by 2.</li></ul>
             <pre><code class="code-block">BinPower(n=50, p0=0.2, p1=0.4, alp=0.05, two.sided=TRUE)
 <span class="output">
    n  p0  p1  alp two.sided Xcr_low Xcr_high  typeI Power
@@ -157,14 +157,14 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('Beta')">Beta Distribution</button>
     <div id="Beta" style="display: none;">
-        <strong>Beta distribution</strong>. These four functions are used for Beta distributions. <code class="inline-code">a</code> and <code class="inline-code">b</code> are the two parameters.
+        <strong>Beta distribution</strong>. These four functions are used for Beta distributions. <code class="cxx">a</code> and <code class="cxx">b</code> are the two parameters.
         <ul>
-            <li><strong>BetaMS</strong> calculates the mean, variance, and standard deviation of a Beta(<code class="inline-code">a</code>, <code class="inline-code">b</code>) distribution.</li>
-            <li><strong>plotBetaDis</strong> plots the density function given <code class="inline-code">a</code> and <code class="inline-code">b</code>.</li>
-            <li><strong>BetaParameters</strong> solves for <code class="inline-code">a</code> and <code class="inline-code">b</code> given the mean and variance of the distribution. <small>I use this function when I need to simulate probabilities.</small></li>
-            <li><strong>BetaCI</strong> computes a 100*<code class="inline-code">p</code>% credible interval given Beta(<code class="inline-code">a</code>, <code class="inline-code">b</code>) as the prior distribution and "<code class="inline-code">x</code> successes out <code class="inline-code">n</code>" as the data.</li>
+            <li><span class="cx">BetaMS(a, b)</span> calculates the mean, variance, and standard deviation of a Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) distribution.</li>
+            <li><span class="cx">plotBetaDis(a, b)</span> plots the density function given <code class="cxx">a</code> and <code class="cxx">b</code>.</li>
+            <li><span class="cx">BetaParameters(m, v)</span> solves for <code class="cxx">a</code> and <code class="cxx">b</code> given the mean and variance of the distribution. <small>I use this function when I need to simulate probabilities.</small></li>
+            <li><span class="cx">BetaCI(a, b, x, n, p)</span> computes a 100*<code class="cxx">p</code>% credible interval given Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) as the prior distribution and "<code class="cxx">x</code> successes out <code class="cxx">n</code>" as the data.</li>
         </ul>
-<pre><code class="code-block">BetaMS(29, 11)
+<pre><code class="code-block">BetaMS(a=29, b=11)
 <span class="output">
    a  b  mean     var     sd
 1 29 11 0.725 0.00486 0.0697
@@ -192,8 +192,8 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
     <div id="shadeDist" style="display: none;">
         <strong>shadeDist</strong> draws a Normal curve or t-distribution curve and shade the specified region. <small>I wrote this for teaching Biostats 1.</small>
 <ul>
-    <li>Either one of <code class="inline-code">df</code> or "<code class="inline-code">mean</code> and <code class="inline-code">sd</code>" needs to be specified.</li> 
-    <li>The shaded region is specified either by <code class="inline-code">LEFT</code>, <code class="inline-code">RIGHT</code>, or <code class="inline-code">BETWEEN</code>. More than one of these can be used.</li> 
+    <li>Either one of <code class="cxx">df</code> or "<code class="cxx">mean</code> and <code class="cxx">sd</code>" needs to be specified.</li> 
+    <li>The shaded region is specified either by <code class="cxx">LEFT</code>, <code class="cxx">RIGHT</code>, or <code class="cxx">BETWEEN</code>. More than one of these can be used.</li> 
 </ul>
 
 <pre><code class="code-block">shadeDist(mean=120, sd=8, BETWEEN=c(116, 132), ylab='Density')
@@ -211,12 +211,12 @@ title(main='Normal(120, 8)', font.main=3, adj=0)
         <strong>Survival Parameters</strong>. These functions convert survival parameters assuming a constant hazard, as in the exponential survival model.
 
 <ul> 
-    <li><code class="inline-code">ps2hr(prop, Time)</code> converts proportion surviving (at Time = <code class="inline-code">Time</code>) to hazard rate.</li>
-    <li><code class="inline-code">ms2hr(ms)</code> converts median survival to hazard rate.</li> 
-    <li><code class="inline-code">hr2ms(hr)</code> converts hazard rate to median survival.</li> 
-    <li><code class="inline-code">ps2ms(prop, Time) </code> converts proportion surviving (at Time = <code class="inline-code">Time</code>) to median survival.</li> 
-    <li><code class="inline-code">ms2ps(ms, Time)</code> converts median survival to proportion surviving.</li> 
-    <li><code class="inline-code">hr2ps(hr, Time)</code> converts hazard rate to proportion surviving.</li> 
+    <li><code class="cx">ps2hr(prop, Time)</code> converts proportion surviving (at Time = <code class="cxx">Time</code>) to hazard rate.</li>
+    <li><code class="cx">ms2hr(ms)</code> converts median survival to hazard rate.</li> 
+    <li><code class="cx">hr2ms(hr)</code> converts hazard rate to median survival.</li> 
+    <li><code class="cx">ps2ms(prop, Time) </code> converts proportion surviving (at Time = <code class="cxx">Time</code>) to median survival.</li> 
+    <li><code class="cx">ms2ps(ms, Time)</code> converts median survival to proportion surviving.</li> 
+    <li><code class="cx">hr2ps(hr, Time)</code> converts hazard rate to proportion surviving.</li> 
 </ul>
 
 <br>What is the one-year survival proportion if the median survival is 5 months?
