@@ -270,7 +270,7 @@ kmplot(kma, mark='', simple=FALSE,
     group.names=c('Obs ','Obs tumor adh','Lev','Lev tumor adh','Lev+5FU ','Lev+5FU tumor adh'), # Change group names
     group.order=c(5,3,1,6,4,2), # order of appearance in the n.risk.at table and legend.
     extra.left.margin=6, label.n.at.risk=FALSE, draw.lines=TRUE,
-    cex.axis=.8, xlab='Years', ylab='Survival Probability', # labels
+    cex.axis=0.8, xlab='Years', ylab='Survival Probability', # labels
     grid=TRUE, lty.grid=1, lwd.grid=1, col.grid='bisque',
     legend=TRUE, loc.legend='bottomleft',
     cex.lab=0.8, xaxs='r', bty='L', las=1, tcl=-0.2 # other parameters passed to plot()
@@ -373,6 +373,25 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </ul>
 <!--        -->
 <h3>Example</h3>
+<!-- 
+data(iris)
+x <- iris$Sepal.Length + rnorm(nrow(iris),0,0.05)
+y <- iris$Petal.Length + rnorm(nrow(iris),0,0.10)
+cc <- c('dodgerblue','darkorange','darkgreen')[as.numeric(iris$Species)]
+
+par(bg='thistle1')
+plot(x,y, xlab='Sepal Length', ylab='Petal Length', col=cc, pch=20, 
+    panel.first=grid(nx=NULL, ny=NULL, col='grey80', lty=1))
+title(main='Iris data', adj=0, font.main=3, line=1)
+    
+text.with.bg(x.pos=5.8, y.pos=2, txt=paste0('Say something','\n','interesting here.'), 
+        col='royalblue', bkgr='thistle1', x.pad=2, y.pad=2, border=NA, cex=0.8, font=4, family='serif')
+text.with.bg(x.pos=6.5, y.pos=4, txt=paste0('A lot of orange dots.'), 
+        col='darkorange', bkgr=NA, x.pad=4, y.pad=6, border='red', cex=1.2, font=1, family='sans')
+text.with.bg(x.pos=5.0, y.pos=6, txt=paste0('With background'), 
+        col='ivory', bkgr='forestgreen', x.pad=4, y.pad=3, border=NA, cex=1, font=1, family='sans')
+
+-->
 <pre><code class="code-block">
 set.seed(620)
 x <- sample(4:14, 100, replace=TRUE) + rnorm(100,0,1)
