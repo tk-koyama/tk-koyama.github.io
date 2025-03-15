@@ -77,7 +77,7 @@
 <pre><code class="code-block">data(iris)
 iris$Species[seq(1,150,length=20)] <- NA ## for demonstration purposes.
 
-groupSum(v=iris$Sepal.Length, g=iris$Species, select_stats=c('-SE'))
+groupSum(v=Sepal.Length, g=Species, data=iris, select_stats=c('-SE')
 
 <span class="output">
              N Min   Q1 Med   Q3 Max Mean    SD
