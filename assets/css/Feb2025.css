@@ -276,6 +276,14 @@ main {
     border-radius: 0px;
     }
 
+xxc {
+    font-family: "Fira Code", "Consolas", monospace;
+    color: var(--dodger);
+    font-weight: normal;
+    background-color: inherit;
+    padding: 0px 0px;
+    border-radius: 0px;
+}
 
 /* ----- FUNCTION BUTTONS ----- */
 .r-functions-list button {
