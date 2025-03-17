@@ -188,24 +188,6 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-<li><button onclick="toggleVisibility('shadeDist')">shadeDist</button>
-    <div id="shadeDist" style="display: none;">
-        <strong>shadeDist</strong> draws a Normal curve or t-distribution curve and shade the specified region. <small>I wrote this for teaching Biostats 1.</small>
-<ul>
-    <li>Either one of <code class="cxx">df</code> or "<code class="cxx">mean</code> and <code class="cxx">sd</code>" needs to be specified.</li> 
-    <li>The shaded region is specified either by <code class="cxx">LEFT</code>, <code class="cxx">RIGHT</code>, or <code class="cxx">BETWEEN</code>. More than one of these can be used.</li> 
-</ul>
-
-<pre><code class="code-block">shadeDist(mean=120, sd=8, BETWEEN=c(116, 132), ylab='Density')
-title(main='Normal(120, 8)', font.main=3, adj=0)
-</code></pre>
-<!--        -->
-<img src="../assets/images/shadeDist1.png" alt="shadeDist example", width="80%">
-</div>
-</li>
-<!-- ------ --> 
-<!--        --> 
-<!-- ------ --> 
 <li><button onclick="toggleVisibility('survivalParam')">Survival Parameters</button>
     <div id="survivalParam" style="display: none;">
         <strong>Survival Parameters</strong>. These functions convert survival parameters assuming a constant hazard, as in the exponential survival model.

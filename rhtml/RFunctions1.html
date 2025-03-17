@@ -71,8 +71,9 @@
 
 <ul>
 <!-- ------ --> 
-<!-- dbplot  -->
-<!--        --> 
+<!-- ------ --> 
+<!-- dbplot -->
+<!-- ------ --> 
 <!-- ------ --> 
 <li>
 <button onclick="toggleVisibility('dbplot-details')">dbplot</button>
@@ -81,74 +82,74 @@
 
 <p>Its predecessor, <code class="cxx">tplot()</code>, was written over a decade ago. This new <code class="cxx">dbplot()</code> builds upon it, offering enhanced functionality. While <code class="cxx">beeswarm()</code> in beeswarm package provides similar capabilities, <code class="cxx">dbplot()</code> includes controls that better align with my taste and preferences.</p>
 
-<h3>Inputs</h3> Only <span class="cx">y</span> is absolutely required.
+<h3>Inputs</h3> Only <class class="cx">y</class> is absolutely required.
 <h4>Main arguments</h4>
 <ul>
-    <li><span class="cx">y</span> A numeric vector to be plotted.</li>
-    <li><span class="cx">g</span> A grouping vector.</li>
-    <li><span class="cx">clustering_distance</span> Controls which data points are considered part of the same cluster and thus jittered. 
-        <ul><li>If <span class="cxx">NULL</span>, the function determines a reasonable value, and it is returned if <span class="cxx">output=TRUE</span>.</li> 
-            <li>Setting <span class="cxx">clustering_distance=0</span> disables jittering.</li>
+    <li><class class="cx">y</class> A numeric vector to be plotted.</li>
+    <li><class class="cx">g</class> A grouping vector.</li>
+    <li><class class="cx">clustering_distance</class> Controls which data points are considered part of the same cluster and thus jittered. 
+        <ul><li>If <code class="cxx">NULL</code>, the function determines a reasonable value, and it is returned if <code class="cxx">output=TRUE</code>.</li> 
+            <li>Setting <code class="cxx">clustering_distance=0</code> disables jittering.</li>
         </ul></li>
-    <li><span class="cx">jitter_amount</span> Controls jitter distance.
-        <ul><li>If <span class="cxx">NULL</span>, the function determines a reasonable value, and it is returned if <span class="cxx">output=TRUE</span>.</li>
-            <li>Setting <span class="cxx">jittering_amount=0</span> disables jittering.</li>
+    <li><class class="cx">jitter_amount</class> Controls jitter distance.
+        <ul><li>If <code class="cxx">NULL</code>, the function determines a reasonable value, and it is returned if <code class="cxx">output=TRUE</code>.</li>
+            <li>Setting <code class="cxx">jittering_amount=0</code> disables jittering.</li>
         </ul></li>
-    <li><span class="cx">output</span> If TRUE, returns the clustering result, <span class="cxx">clustering_distance</span>, and <span class="cxx">jittering_amount</span>.</li>
-    <li><span class="cx">group_names</span> A vector of group names, defaulting to the factor levels of <span class="cxx">g</span>. </li>
-    <li><span class="cx">group_positions</span> By default, data are plotted at <span class="cxx">x=1, 2, 3, ...</span> unless <span class="cxx">group_positions</span> are specified.</li>
+    <li><class class="cx">output</class> If TRUE, returns the clustering result, <code class="cxx">clustering_distance</code>, and <code class="cxx">jittering_amount</code>.</li>
+    <li><class class="cx">group_names</class> A vector of group names, defaulting to the factor levels of <code class="cxx">g</code>. </li>
+    <li><class class="cx">group_positions</class> By default, data are plotted at <code class="cxx">x=1, 2, 3, ...</code > unless <code class="cxx">group_positions</code> are specified.</li>
 </ul>
 <h4>Color and Point Character</h4>
 <ul>
-    <li><span class="cx">indiv_col</span> A vector of individula colors for <span class="cxx">y</span>.</li>
-    <li><span class="cx">group_col</span> Specifies group colors, 
+    <li><code class="cx">indiv_col</code> A vector of individula colors for <code class="cxx">y</code>.</li>
+    <li><code class="cx">group_col</code> Specifies group colors, 
         <ul><li>Each group can have different colors, but this is redundant information.</li> 
             <li>If a single color is provided, all data points are drawn in that color.</li>
         </ul>
-    <li><span class="cx">indiv_pch</span> See <span class="cxx">indiv_col</span>.</li>
-    <li><span class="cx">group_pch</span> See <span class="cxx">group_col</span>.</li>
+    <li><code class="cx">indiv_pch</code> See <code class="cxx">indiv_col</code>.</li>
+    <li><code class="cx">group_pch</code> See <code class="cxx">group_col</code>.</li>
 </ul>
 <h4>Handling Missing Group</h4>
 <ul>
-    <li><span class="cx">NA_as_group</span> If TRUE, missing values in <span class="cxx">g</span> are treated as a separate group.</li>
-    <li><span class="cx">NA_group_name</span> Defaults to "Missing".</li>
-    <li><span class="cx">NA_group_position</span> The plotting position of the missing group, defaulting to the far right.</li>
-    <li><span class="cx">NA_group_col</span> The color for the "Missing" group.</li> 
-    <li><span class="cx">NA_group_pch</span> The pch (plotting character) for the "Missing" group.</li>
+    <li><code class="cx">NA_as_group</code> If TRUE, missing values in <code class="cxx">g</code> are treated as a separate group.</li>
+    <li><code class="cx">NA_group_name</code> Defaults to "Missing".</li>
+    <li><code class="cx">NA_group_position</code> The plotting position of the missing group, defaulting to the far right.</li>
+    <li><code class="cx">NA_group_col</code> The color for the "Missing" group.</li> 
+    <li><code class="cx">NA_group_pch</code> The pch (plotting character) for the "Missing" group.</li>
 </ul>
 <h4>Boxplot</h4>
-<ul><li><span class="cx">box_col</span> Boxplot colors, which can be specified for each group.</li>
-    <li><span class="cx">NA_box_col</span> Boxplot color for the "Missing" group.</li>
+<ul><li><code class="cx">box_col</code> Boxplot colors, which can be specified for each group.</li>
+    <li><code class="cx">NA_box_col</code> Boxplot color for the "Missing" group.</li>
 </ul>
 <h4>Other Specifications</h4>
 <ul>
-    <li><span class="cx">grid_x</span> Draws horizontal grid lines at specified values.</li>
-    <li><span class="cx">grid_y</span> Draws vertical grid lines at specified values. <small>(a little silly)</small></li>
-    <li><span class="cx">show_n</span> If TRUE, displays sample sizes.</li>
-    <li><span class="cx">xaxis</span> If FALSE, group names will not be shown.</li>
-    <li><span class="cx">yaxis</span> If FALSE, y-axis will not be drawn.</li>
+    <li><code class="cx">grid_x</code> Draws horizontal grid lines at specified values.</li>
+    <li><code class="cx">grid_y</code> Draws vertical grid lines at specified values. <small>(a little silly)</small></li>
+    <li><code class="cx">show_n</code> If TRUE, displays sample sizes.</li>
+    <li><code class="cx">xaxis</code> If FALSE, group names will not be shown.</li>
+    <li><code class="cx">yaxis</code> If FALSE, y-axis will not be drawn.</li>
 </ul>
     
 <h4>Figure Type Options</h4>
     <ul>
-    <li><span class="cx">fig_type</span>Figure type options.
-        <ul><li><span class="cxx">b</span>: Boxplot</li> 
-            <li><span class="cxx">d</span>: Dot plot</li>
-            <li><span class="cxx">db</span>: Dot over boxplot</li>
-            <li><span class="cxx">bd</span>: Box over dot plot (very silly)</li>
+    <li><code class="cx">fig_type</code>Figure type options.
+        <ul><li><code class="cxx">b</code>: Boxplot</li> 
+            <li><code class="cxx">d</code>: Dot plot</li>
+            <li><code class="cxx">db</code>: Dot over boxplot</li>
+            <li><code class="cxx">bd</code>: Box over dot plot (very silly)</li>
         </ul>
-    <li><span class="cx">NA_fig_type</span> Figure type for "Missing" group.</li>
+    <li><code class="cx">NA_fig_type</code> Figure type for "Missing" group.</li>
 </ul>
 
 <h4>Additional Inputs</h4> 
 <ul>
-    <li><span class="cx">grid_par</span> A list of paraameters to pass to the <xxc>abline()</xxc> function for drawing grid lines. (<xxc>col</xxc>, <xxc>lty</xxc>, <xxc>lwd</xxc>).  </li>
+    <li><code class="cx">grid_par</code> A list of paraameters to pass to the <xxc>abline()</xxc> function for drawing grid lines. (<xxc>col</xxc>, <xxc>lty</xxc>, <xxc>lwd</xxc>).  </li>
 </ul>
 The following arguments are passed to <xxc>plot()</xxc>, <xxc>points()</xxc>, <xxc>boxplot()</xxc> functions.
 <ul>
-    <li><span class="cx">plot()</span> <xxc>main</xxc>, <xxc>sub</xxc>, <xxc>xlab</xxc>, <xxc>ylab</xxc>, <xxc>xlim</xxc>, <xxc>ylim</xxc>, <xxc>axes</xxc>, <xxc>frame.plot</xxc>.</li>
-    <li><span class="cx">points()</span> <xxc>cex</xxc>, <xxc>bg</xxc>.</li> 
-    <li><span class="cx">boxplot()</span> <xxc>range</xxc>, <xxc>notch</xxc>, <xxc>border</xxc>, <xxc>boxwex</xxc>.</li> 
+    <li><code class="cx">plot()</code> <xxc>main</xxc>, <xxc>sub</xxc>, <xxc>xlab</xxc>, <xxc>ylab</xxc>, <xxc>xlim</xxc>, <xxc>ylim</xxc>, <xxc>axes</xxc>, <xxc>frame.plot</xxc>.</li>
+    <li><code class="cx">points()</code> <xxc>cex</xxc>, <xxc>bg</xxc>.</li> 
+    <li><code class="cx">boxplot()</code> <xxc>range</xxc>, <xxc>notch</xxc>, <xxc>border</xxc>, <xxc>boxwex</xxc>.</li> 
 </ul>
 
 <h3>Example</h3>
@@ -180,12 +181,11 @@ dbplot(y, g, group_names=c('Cat','Bat','Rat'),
 
 </div>
 </li>
-
-
-<!-- ------ -->
+<!-- ------ --> 
+<!-- ------ --> 
 <!-- kmplot -->
-<!--        -->
-<!-- ------ -->
+<!-- ------ --> 
+<!-- ------ --> 
 <li><button onclick="toggleVisibility('kmplot-details')">kmplot</button>
 <div id="kmplot-details" style="display: none;">
 
@@ -195,75 +195,69 @@ dbplot(y, g, group_names=c('Cat','Bat','Rat'),
     <li>The ability to specify the time points where numbers are displayed.</li>
 </ul> </p>
 <p>Other functionalities are demonstrated in the example below.</p>
-
-
-
 <!--        -->
 <h3>Inputs</h3>
 <h4>Main Arguments</h4>
 <ul>
-    <li><span class="cx">km</span> Output of <span class="cxx">survfit()</span></li>
-    <li><span class="cx">mark</span> Tick mark style. The same as <span class="cxx">pch</span>.</li>
-    <li><span class="cx">simple</span> If TRUE, the 'at risk' table will not be produced.</li>
-    <li><span class="cx">xaxis.at</span> Specifies time positions where 'at risk' numbers are computed and displayed.</li>
-    <li><span class="cx">xaxis.lab</span> Labels for the x-axis. Useful e.g., when time is in days but labels in year are preferred.</li>
+    <li><code class="cx">km</code> Output of <code class="cxx">survfit()</code></li>
+    <li><code class="cx">mark</code> Tick mark style. The same as <code class="cxx">pch</code>.</li>
+    <li><code class="cx">simple</code> If TRUE, the 'at risk' table will not be produced.</li>
+    <li><code class="cx">xaxis.at</code> Specifies time positions where 'at risk' numbers are computed and displayed.</li>
+    <li><code class="cx">xaxis.lab</code> Labels for the x-axis. Useful e.g., when time is in days but labels in year are preferred.</li>
 </ul>
 <h4>line Specifications</h4>
 <ul>
-    <li><span class="cx">lty.surv</span> Line type for survival curves</li>
-    <li><span class="cx">lwd.surv</span> Line width for survival curves</li>
-    <li><span class="cx">col.surv</span> Color for survival curves</li>
-    <li><span class="cx">lty.ci</span> Line type for confidence intervals</li>
-    <li><span class="cx">lwd.ci</span> Line width for confidence intervals</li>
-    <li><span class="cx">col.ci</span> Color for confidence intervals</li>
+    <li><code class="cx">lty.surv</code> Line type for survival curves</li>
+    <li><code class="cx">lwd.surv</code> Line width for survival curves</li>
+    <li><code class="cx">col.surv</code> Color for survival curves</li>
+    <li><code class="cx">lty.ci</code> Line type for confidence intervals</li>
+    <li><code class="cx">lwd.ci</code> Line width for confidence intervals</li>
+    <li><code class="cx">col.ci</code> Color for confidence intervals</li>
 
 </ul>
 <h4>At Risk Table</h4>
 <ul>
-    <li><span class="cx">group.names</span> Names displayed in the 'at risk' table and legend.</li>
-    <li><span class="cx">group.order</span> Reorders groups in the 'at risk' table to approximately match appearance of survival curves.</li>
-    <li><span class="cx">extra.left.margin</span> Adds extra space when group names are long.</li>
-    <li><span class="cx">label.n.at.risk</span> If TRUE, labels the 'N at risk' table.</li>
-    <li><span class="cx">draw.lines</span> Draws lines to specifies survival curves. <small>(Not sure why this is optional)</small></li>
-    <li><span class="cx">cex.axis</span> Controls cex.axis and the text size of the 'N at risk' table.</li>
+    <li><code class="cx">group.names</code> Names displayed in the 'at risk' table and legend.</li>
+    <li><code class="cx">group.order</code> Reorders groups in the 'at risk' table to approximately match appearance of survival curves.</li>
+    <li><code class="cx">extra.left.margin</code> Adds extra space when group names are long.</li>
+    <li><code class="cx">label.n.at.risk</code> If TRUE, labels the 'N at risk' table.</li>
+    <li><code class="cx">draw.lines</code> Draws lines to specifies survival curves. <small>(Not sure why this is optional)</small></li>
+    <li><code class="cx">cex.axis</code> Controls cex.axis and the text size of the 'N at risk' table.</li>
 
 </ul>
 <h4>Figure Appearances</h4>
 <ul>
-    <li><span class="cx">xlab</span> X-axis label</li>
-    <li><span class="cx">ylab</span> Y-axis label</li>
-    <li><span class="cx">main</span> Plot title</li>
-    <li><span class="cx">xlm</span> Passed to xlim</li>
-    <li><span class="cx">ylm</span> Passed to ylim</li>
+    <li><code class="cx">xlab</code> X-axis label</li>
+    <li><code class="cx">ylab</code> Y-axis label</li>
+    <li><code class="cx">main</code> Plot title</li>
+    <li><code class="cx">xlm</code> Passed to xlim</li>
+    <li><code class="cx">ylm</code> Passed to ylim</li>
 
 </ul>
 <h4>Grid</h4>
 <ul>
-    <li><span class="cx">grid</span> If TRUE, draws grid lines. Vertical lines appear at <span class="cxx">xaxis.at</span> locations, and horizontal lines at <span class="cxx">pretty(0,1)</span> locations.</li>
-    <li><span class="cx">lty.grid</span> Line type for grid</li>
-    <li><span class="cx">lwd.grid</span> Line width for grid</li>
-    <li><span class="cx">col.grid</span> Color for grid</li>
+    <li><code class="cx">grid</code> If TRUE, draws grid lines. Vertical lines appear at <code class="cxx">xaxis.at</code> locations, and horizontal lines at <code class="cxx">pretty(0,1)</code> locations.</li>
+    <li><code class="cx">lty.grid</code> Line type for grid</li>
+    <li><code class="cx">lwd.grid</code> Line width for grid</li>
+    <li><code class="cx">col.grid</code> Color for grid</li>
 
 </ul>
 <h4>Legend</h4>
 <ul>
-    <li><span class="cx">legend</span> Enables/disables the legend</li>
-    <li><span class="cx">loc.legend</span> Controls legend position</li>
+    <li><code class="cx">legend</code> Enables/disables the legend</li>
+    <li><code class="cx">loc.legend</code> Controls legend position</li>
 
 </ul>
 <h4>Other</h4>
 <ul>
-    <li><span class="cx">add</span> If TRUE, adds to an existing plot.</li>
-    <li><span class="cx">returnOutput</span> If TRUE, returns the output of <span class="cxx">survfit()</span>.</li>
-        <li><span class="cx">...</span> Additional arguments passed to <span class="cxx">par()</span>.</li>
+    <li><code class="cx">add</code> If TRUE, adds to an existing plot.</li>
+    <li><code class="cx">returnOutput</code> If TRUE, returns the output of <code class="cxx">survfit()</code>.</li>
+        <li><code class="cx">...</code> Additional arguments passed to <code class="cxx">par()</code>.</li>
 </ul>
-
 <br>
-
 <!--        --> 
 <h3>Example</h3>
 <pre><code class="code-block">require(survival)
-
 kma <- survfit( Surv(time, status) ~ rx + adhere, data=colon )
 kmplot(kma, mark='', simple=FALSE,
     xaxis.at=c(0, 0.5, 1:9)*365, xaxis.lab=c(0, 0.5, 1:9), # n.risk.at
@@ -282,50 +276,26 @@ title(main='Chemotherapy for stage B/C colon cancer', adj=.1, font.main=1, line=
 <img src="../assets/images/kmplot1.png" alt="kmplot example", width="95%">
 </div>
 </li>
-<!-- ------ --> 
-<!-- jmplot --> 
-<!-- ------ --> 
-<li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
-<div id="jmplot-details" style="display: none;">
-    <strong>jmplot()</strong> plots the joint distribution along with marginal distributions on each margin. The parameters <code class="cxx">dist</code> (which controls jitter) and <code class="cxx">jit</code> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
-    <!--        -->
-<h3>Example</h3>
-<pre><code class="code-block">set.seed(1220)
-
-x <- rexp(100)
-y <- rexp(100)
-levels <- as.factor(sample(c("Male","Female"), 100, TRUE))
-co <- c('brown','royalblue')[as.numeric(levels)]
-
-jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
-</code></pre>
-
-<img src="../assets/images/jmplot1.png" alt="jmplot example", width="80%">
-</div>
-</li>
-<!-- ------ --> 
-<!-- dsplot --> 
-<!-- ------ --> 
-<li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
-<div id="dsplot-details" style="display: none;">
-<p><strong>Deprecated</strong>. (Discrete scatter plot) The idea was to show continuous data with lots of ties effectively. <small>This is no longer being developed. Use jitter() function carefully.</small></p>
-<!--        -->
-<!-- <h3>Example</h3>
-<p>This example demonstrates the available options in <strong>...</strong>.</p>
+<!-- --------- --> 
+<!-- --------- --> 
+<!-- shadeDist -->
+<!-- --------- --> 
+<!-- --------- --> 
+<li><button onclick="toggleVisibility('shadeDist')">shadeDist</button>
+    <div id="shadeDist" style="display: none;">
+        <strong>shadeDist</strong> draws a Normal curve or t-distribution curve and shade the specified region. <small>I wrote this for teaching Biostats 1.</small>
 <ul>
-<li>one</li>
-<li>two</li>
-<li>three</li>
+    <li>Either one of <code class="cxx">df</code> or "<code class="cxx">mean</code> and <code class="cxx">sd</code>" needs to be specified.</li> 
+    <li>The shaded region is specified either by <code class="cxx">LEFT</code>, <code class="cxx">RIGHT</code>, or <code class="cxx">BETWEEN</code>. More than one of these can be used.</li> 
 </ul>
--->
-<!--        --> 
-<!-- <h3>Example</h3>
-<pre><code class="code-block">x <- 3
+
+<pre><code class="code-block">shadeDist(mean=120, sd=8, BETWEEN=c(116, 132), ylab='Density')
+title(main='Normal(120, 8)', font.main=3, adj=0)
 </code></pre>
-<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
+<!--        -->
+<img src="../assets/images/shadeDist1.png" alt="shadeDist example", width="80%">
 </div>
 </li>
--->
 <!-- ----------- --> 
 <!-- show.colors --> 
 <!-- ----------- --> 
@@ -354,24 +324,24 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 <h3>Inputs</h3>
 <h4>Main Arguments</h4>
 <ul>
-    <li><span class="cx">x.pos</span> Position of the text box on the x-axis (upper-left corner).</li>
-    <li><span class="cx">y.pos</span> Position of the text box on the y-axis (upper-left corner).</li>
-    <li><span class="cx">txt</span> The text to be displayed.</li>
+    <li><code class="cx">x.pos</code> Position of the text box on the x-axis (upper-left corner).</li>
+    <li><code class="cx">y.pos</code> Position of the text box on the y-axis (upper-left corner).</li>
+    <li><code class="cx">txt</code> The text to be displayed.</li>
 </ul>
 <h4>Padding & Sizing</h4>
 <ul>
-    <li><span class="cx">x.pad</span> Horizontal padding around the text, relative to the plot size (%).</li>
-    <li><span class="cx">y.pad</span> Veritcal padding around the text, relative to the plot size (%).</li>
+    <li><code class="cx">x.pad</code> Horizontal padding around the text, relative to the plot size (%).</li>
+    <li><code class="cx">y.pad</code> Veritcal padding around the text, relative to the plot size (%).</li>
 </ul>
 <h4>Appearance</h4>
 <ul>
-    <li><span class="cx">col</span> Color of the text.</li>
-    <li><span class="cx">bkgr</span> Background color of the text box. Set to <code class="cxx">NA</code> for transparency.</li>
-    <li><span class="cx">border</span> Color of the rectangle border. Defaults to <code class="cxx">NA</code> (no border).</li>
+    <li><code class="cx">col</code> Color of the text.</li>
+    <li><code class="cx">bkgr</code> Background color of the text box. Set to <code class="cxx">NA</code> for transparency.</li>
+    <li><code class="cx">border</code> Color of the rectangle border. Defaults to <code class="cxx">NA</code> (no border).</li>
 </ul>
 <h4>Additional Arguments</h4>
 <ul>
-    <li><span class="cx">...</span> Passed to `text()` and `strwidth()`/`strheight()`, allowing customization of font size (`cex`) and style (`font`),</li>
+    <li><code class="cx">...</code> Passed to `text()` and `strwidth()`/`strheight()`, allowing customization of font size (`cex`) and style (`font`),</li>
 </ul>
 <!--        -->
 <h3>Example</h3>
@@ -454,7 +424,50 @@ tplot(y ~ group, data=d, ylim=c(0,50),
 <img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
 </div>
 </li>
+<!-- ------ --> 
+<!-- jmplot --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('jmplot-details')">jmplot</button>
+<div id="jmplot-details" style="display: none;">
+    <p><strong>Deprecated</strong>.  <code class="cxx">jmplot()</code> plots the joint distribution along with marginal distributions on each margin. The parameters <code class="cxx">dist</code> (which controls jitter) and <code class="cxx">jit</code> (which sets the jitter amount) are currently swapped for unknown reasons. <small>I'll fix it someday. In the meantime, ggplot2 has this <a href="https://stackoverflow.com/questions/8545035/scatterplot-with-marginal-histograms-in-ggplot2">covered</a>. </small>
+    <!--        -->
+<h3>Example</h3>
+<pre><code class="code-block">set.seed(1220)
 
+x <- rexp(100)
+y <- rexp(100)
+levels <- as.factor(sample(c("Male","Female"), 100, TRUE))
+co <- c('brown','royalblue')[as.numeric(levels)]
+
+jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
+</code></pre>
+
+<img src="../assets/images/jmplot1.png" alt="jmplot example", width="80%">
+</div>
+</li>
+<!-- ------ --> 
+<!-- dsplot --> 
+<!-- ------ --> 
+<li><button onclick="toggleVisibility('dsplot-details')">dsplot</button>
+<div id="dsplot-details" style="display: none;">
+<p><strong>Deprecated</strong>. (Discrete scatter plot) The idea was to show continuous data with lots of ties effectively. <small>This is no longer being developed. Use jitter() function carefully.</small></p>
+<!--        -->
+<!-- <h3>Example</h3>
+<p>This example demonstrates the available options in <strong>...</strong>.</p>
+<ul>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+-->
+<!--        --> 
+<!-- <h3>Example</h3>
+<pre><code class="code-block">x <- 3
+</code></pre>
+<img src="../assets/images/tplot1.png" alt="tplot example", width="80%">
+</div>
+</li>
+-->
 </section>
 </main>
 </div> <!-- End of container-box -->
