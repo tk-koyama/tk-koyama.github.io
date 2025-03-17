@@ -76,10 +76,10 @@
 <ul>
 <li><button onclick="toggleVisibility('TwoStageInfProb')">TwoStageInf.prob</button>
     <div id="TwoStageInfProb" style="display: none;">
-        This function displays the design parameters and calculates key design characteristics, including the Type I error rate, power (<code class="inline-code">POWER</code>), probabilities of early termination (<code class="inline-code">PET</code>), and expected sample sizes (<code class="inline-code">EN</code>) under both the null and alternative hypotheses. 
+        This function displays the design parameters and calculates key design characteristics, including the Type I error rate, power (<code class="cxx">POWER</code>), probabilities of early termination (<code class="cxx">PET</code>), and expected sample sizes (<code class="cxx">EN</code>) under both the null and alternative hypotheses. 
         <ul> 
-            <li>Note <code class="inline-code">R1</code><strong>=r1+1</strong> and <code class="inline-code">RT</code><strong>=r+1</strong>, where <strong>r1</strong> and <strong>r</strong> are the conventional parameters used.</li>
-            <li><strong>Power</strong> under the null hypothesis is the type I error rate.</li>
+            <li>Note <code class="cxx">R1=r1+1</code> and <code class="cxx">RT=r+1</code>, where <strong>r1</strong> and <strong>r</strong> are the conventional parameters used.</li>
+            <li>Power under the null hypothesis is the type I error rate.</li>
         </ul>
         <h3>Example</h3>
 <pre><code class="code-block">TwoStageInf.prob(p0=0.1, p1=0.3, n1=10, R1=2, nT=29, RT=6)
@@ -101,9 +101,9 @@ ALT  0.8051 0.149 26.2
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('TwoStageInf')">TwoStageInf</button>
     <div id="TwoStageInf" style="display: none;">
-        This function computes the <em>proper</em> p-value, a confidence interval, and a median estimate based on a two-stage design and observed data. The design is specified using the same parameters as in <strong>TwoStageInf.prob</strong>: <code class="inline-code">p0</code>, <code class="inline-code">p1</code>, <code class="inline-code">n1</code>, <code class="inline-code">R1</code>, <code class="inline-code">nT</code>, <code class="inline-code">RT</code>.
-        <ul><li>Stage 1 data are provided in <code class="inline-code">x1</code>. If the actual stage 2 sample size differs from the planned value, it can be specified using <code class="inline-code">m2</code>.</li>
-            <li>Stage 2 data are provided in <code class="inline-code">x2</code>.</li>
+        This function computes the <em>proper</em> p-value, a confidence interval, and a median estimate based on a two-stage design and observed data. The design is specified using the same parameters as in <code class="cx">TwoStageInf.prob</code>: <code class="cxx">p0</code>, <code class="cxx">p1</code>, <code class="cxx">n1</code>, <code class="cxx">R1</code>, <code class="cxx">nT</code>, <code class="cxx">RT</code>.
+        <ul><li>Stage 1 data are provided in <code class="cxx">x1</code>. If the actual stage 2 sample size differs from the planned value, it can be specified using <code class="cxx">m2</code>.</li>
+            <li>Stage 2 data are provided in <code class="cxx">x2</code>.</li>
         </ul>
     <h3>Example</h3>
 <pre><code class="code-block">TwoStageInf(p0=0.3, p1=0.5, n1=19, R1=7, nT=39, RT=17, x1=7, m2=23, x2=10)
