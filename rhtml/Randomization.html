@@ -57,10 +57,10 @@
 <ul>
     <li><code class="cx">n</code> Total number of assignments needed. This should be (much) larger than the actual sample size.</li>
     <li><code class="cx">Groups</code> Treatment group names, e.g., <code class="cxx">c('Control','Treatment')</code></li>
-    <li><code class="cx">prob</code> Probabilities for block sizes. Does not need to add to one (Will be normalized).
+    <li><code class="cx">prob</code> Probabilities for block sizes. Does not need to sum to one (will be normalized).
         <ul><li>If there are only two treatment groups, possible block sizes are 2, 4, or 6, with default probabilities of <code class="cxx">c(0.2, 0.7, 0.1)</code>.</li></ul></li>
-    <li><code class="cx">allocation</code> Allocation ratio. e.g., <code class="cxx">c(2,1,1)</code> for 2:1:1 allocation ratio. <code class="cxx">NA</code> for equal allocation.</li>
-    <li><code class="cx">seed</code> Random seed for reproducibility (NA for random seed)</li>
+    <li><code class="cx">allocation</code> Allocation ratio. e.g., <code class="cxx">c(2,1,1)</code> for a 2:1:1 allocation ratio. Use <code class="cxx">NA</code> for equal allocation.</li>
+    <li><code class="cx">seed</code> Random seed for reproducibility (Use <code class="cxx">NA</code> for random seed)</li>
 </ul>
 
 <h3>Example</h3>
@@ -87,7 +87,7 @@ table(out$assignments)
 30 15 
 </code></pre>
 
-By setting <code class="cxx">seed=1760</code>, the result can be reproduced.
+Setting <code class="cxx">seed=1760</code> allows the result to be reproduced.
 
 <pre><code class="code-block">out <- block_rand(n=40, Groups=c('X','Z'), prob=c(2,7,1),
                 allocation=c(2,1), seed=1760)
@@ -97,20 +97,20 @@ By setting <code class="cxx">seed=1760</code>, the result can be reproduced.
 
 <li><button onclick="toggleVisibility('strat_rand-details')">strat_rand</button>
 <div id="strat_rand-details" style="display: none;">
-    <p>The <strong>strat_rand()</strong> function is used for stratified randomization. <code class="cxx">block_rand()</code> is used inside this function.</p>
+    <p>The <strong>strat_rand()</strong> function performs stratified randomization, utilizing <code class="cxx">block_rand()</code> internally.</p>
     <h3>Inputs</h3>
     <h4>Main Arguments</h4>
     <ul>
-        <li><code class="cx">stratum_size</code> Sample size PER STRATUM (each subgroup gets this many allocations)</li>
-        <li><code class="cx">Groups</code> Treatment group names (see <code class="cxx">block_rand()</code>)</li>
-        <li><code class="cx">prob</code> Probabilities for block sizes (see <code class="cxx">block_rand()</code>)</li>
-        <li><code class="cx">allocation</code> Allocation ratios (see <code class="cxx">block_rand()</code>)</li>
-        <li><code class="cx">seed</code> Random seed for reproducibility (see <code class="cxx">block_rand()</code>)</li>
-        <li><code class="cx">...</code> Stratification variables as named vectors (e.g., <code class="cxx">Hospital=c('V','X','Y'))</code></li>
+        <li><code class="cx">stratum_size</code> Sample size per stratum (each subgroup receives this number of allocations).</li>
+        <li><code class="cx">Groups</code> Treatment group names; refer to <code class="cxx">block_rand()</code>.</li>
+        <li><code class="cx">prob</code> Probabilities for block sizes; refer to <code class="cxx">block_rand()</code>.</li>
+        <li><code class="cx">allocation</code> Allocation ratios; refer to <code class="cxx">block_rand()</code>.</li>
+        <li><code class="cx">seed</code> Random seed for reproducibility; refer to <code class="cxx">block_rand()</code>.</li>
+        <li><code class="cx">...</code> Stratification variables as named vectors (e.g., <code class="cxx">Hospital=c('V','X','Y')).</code></li>
     </ul>
 
     <h3>Output</h3>
-    <p>'assignments' has S+1 columns, where S is the number of strata. 'group' row has the actual allocations, and the rest of the columns identify each stratum. This is the format REDCap takes for its stratified randomization function.</p>
+    <p><code class="cxx">assignments</code> contains <mono>S+1</mono> columns, where <mono>S</mono> is the number of strata. <mono>group</mono> column contains the actual allocations, while the remaining columns identify each stratum. This is the format required by REDCap for its stratified randomization function.</p>
     
     <h3>Example</h3>
     <pre><code class="code-block">set.seed(620)
