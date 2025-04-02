@@ -63,7 +63,10 @@
     <a href="RFunctions1.html">Custom Figures</a>
     <a href="RFunctions2.html">Misc Functions</a>
     <a href="TwoStage2025.html">Two-Stage Designs</a>
+    <a href="Randomization.html">Randomization</a>
     </div>
+
+
 <!--        --> 
 <div class="r-functions-list">
 <h2>Custom Figures</h2>
@@ -82,22 +85,22 @@
 
 <p>Its predecessor, <code class="cxx">tplot()</code>, was written over a decade ago. This new <code class="cxx">dbplot()</code> builds upon it, offering enhanced functionality. While <code class="cxx">beeswarm()</code> in beeswarm package provides similar capabilities, <code class="cxx">dbplot()</code> includes controls that better align with my taste and preferences.</p>
 
-<h3>Inputs</h3> Only <class class="cx">y</class> is absolutely required.
+<h3>Inputs</h3> Only <code class="cx">y</code> is absolutely required.
 <h4>Main arguments</h4>
 <ul>
-    <li><class class="cx">y</class> A numeric vector to be plotted.</li>
-    <li><class class="cx">g</class> A grouping vector.</li>
-    <li><class class="cx">clustering_distance</class> Controls which data points are considered part of the same cluster and thus jittered. 
+    <li><code class="cx">y</code> A numeric vector to be plotted.</li>
+    <li><code class="cx">g</code> A grouping vector.</li>
+    <li><code class="cx">clustering_distance</code> Controls which data points are considered part of the same cluster and thus jittered. 
         <ul><li>If <code class="cxx">NULL</code>, the function determines a reasonable value, and it is returned if <code class="cxx">output=TRUE</code>.</li> 
             <li>Setting <code class="cxx">clustering_distance=0</code> disables jittering.</li>
         </ul></li>
-    <li><class class="cx">jitter_amount</class> Controls jitter distance.
+    <li><code class="cx">jitter_amount</code> Controls jitter distance.
         <ul><li>If <code class="cxx">NULL</code>, the function determines a reasonable value, and it is returned if <code class="cxx">output=TRUE</code>.</li>
             <li>Setting <code class="cxx">jittering_amount=0</code> disables jittering.</li>
         </ul></li>
-    <li><class class="cx">output</class> If TRUE, returns the clustering result, <code class="cxx">clustering_distance</code>, and <code class="cxx">jittering_amount</code>.</li>
-    <li><class class="cx">group_names</class> A vector of group names, defaulting to the factor levels of <code class="cxx">g</code>. </li>
-    <li><class class="cx">group_positions</class> By default, data are plotted at <code class="cxx">x=1, 2, 3, ...</code > unless <code class="cxx">group_positions</code> are specified.</li>
+    <li><code class="cx">output</code> If TRUE, returns the clustering result, <code class="cxx">clustering_distance</code>, and <code class="cxx">jittering_amount</code>.</li>
+    <li><code class="cx">group_names</code> A vector of group names, defaulting to the factor levels of <code class="cxx">g</code>. </li>
+    <li><code class="cx">group_positions</code> By default, data are plotted at <code class="cxx">x=1, 2, 3, ...</code > unless <code class="cxx">group_positions</code> are specified.</li>
 </ul>
 <h4>Color and Point Character</h4>
 <ul>
@@ -331,7 +334,7 @@ title(main='Normal(120, 8)', font.main=3, adj=0)
 <h4>Padding & Sizing</h4>
 <ul>
     <li><code class="cx">x.pad</code> Horizontal padding around the text, relative to the plot size (%).</li>
-    <li><code class="cx">y.pad</code> Veritcal padding around the text, relative to the plot size (%).</li>
+    <li><code class="cx">y.pad</code> Vertical padding around the text, relative to the plot size (%).</li>
 </ul>
 <h4>Appearance</h4>
 <ul>
