@@ -106,11 +106,11 @@ Setting <code class="cxx">seed=1760</code> allows the result to be reproduced.
         <li><code class="cx">prob</code> Probabilities for block sizes; refer to <code class="cxx">block_rand()</code>.</li>
         <li><code class="cx">allocation</code> Allocation ratios; refer to <code class="cxx">block_rand()</code>.</li>
         <li><code class="cx">seed</code> Random seed for reproducibility; refer to <code class="cxx">block_rand()</code>.</li>
-        <li><code class="cx">...</code> Stratification variables as named vectors (e.g., <code class="cxx">Hospital=c('V','X','Y')).</code></li>
+        <li><code class="cx">...</code> Stratification variables as named vectors (e.g., <code class="cxx">Hospital=c('V','X','Y')</code>).</li>
     </ul>
 
     <h3>Output</h3>
-    <p><code class="cxx">assignments</code> contains <mono>S+1</mono> columns, where <mono>S</mono> is the number of strata. <mono>group</mono> column contains the actual allocations, while the remaining columns identify each stratum. This is the format required by REDCap for its stratified randomization function.</p>
+    <p><code class="cxx">assignments</code> contains <mono>S+1</mono> columns, where <mono>S</mono> is the number of strata. <code class="cxx">group</code> column contains the actual allocations, while the remaining columns identify each stratum. This is the format required by REDCap for its stratified randomization function.</p>
     
     <h3>Example</h3>
     <pre><code class="code-block">set.seed(620)
