@@ -14,17 +14,7 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script> -->
 <!-- Initialize Highlight.js -->
-<script>hljs.highlightAll();</script>
-    <script>
-        function toggleVisibility(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "none") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
-    </script>
+<!-- <script>hljs.highlightAll();</script> -->
 </head>
 <!-- ------ --> 
 <!--        --> 
@@ -96,15 +86,15 @@
         </ul></li>
     <li><code class="cx">jitter_amount</code> Controls jitter distance.
         <ul><li>If <code class="cxx">NULL</code>, the function determines a reasonable value, and it is returned if <code class="cxx">output=TRUE</code>.</li>
-            <li>Setting <code class="cxx">jittering_amount=0</code> disables jittering.</li>
+            <li>Setting <code class="cxx">jitter_amount=0</code> disables jittering.</li>
         </ul></li>
-    <li><code class="cx">output</code> If TRUE, returns the clustering result, <code class="cxx">clustering_distance</code>, and <code class="cxx">jittering_amount</code>.</li>
+    <li><code class="cx">output</code> If TRUE, returns the clustering result, <code class="cxx">clustering_distance</code>, and <code class="cxx">jitter_amount</code>.</li>
     <li><code class="cx">group_names</code> A vector of group names, defaulting to the factor levels of <code class="cxx">g</code>. </li>
     <li><code class="cx">group_positions</code> By default, data are plotted at <code class="cxx">x=1, 2, 3, ...</code > unless <code class="cxx">group_positions</code> are specified.</li>
 </ul>
 <h4>Color and Point Character</h4>
 <ul>
-    <li><code class="cx">indiv_col</code> A vector of individula colors for <code class="cxx">y</code>.</li>
+    <li><code class="cx">indiv_col</code> A vector of individual colors for <code class="cxx">y</code>.</li>
     <li><code class="cx">group_col</code> Specifies group colors, 
         <ul><li>Each group can have different colors, but this is redundant information.</li> 
             <li>If a single color is provided, all data points are drawn in that color.</li>
@@ -146,7 +136,7 @@
 
 <h4>Additional Inputs</h4> 
 <ul>
-    <li><code class="cx">grid_par</code> A list of paraameters to pass to the <xxc>abline()</xxc> function for drawing grid lines. (<xxc>col</xxc>, <xxc>lty</xxc>, <xxc>lwd</xxc>).  </li>
+    <li><code class="cx">grid_par</code> A list of parameters to pass to the <xxc>abline()</xxc> function for drawing grid lines. (<xxc>col</xxc>, <xxc>lty</xxc>, <xxc>lwd</xxc>).  </li>
 </ul>
 The following arguments are passed to <xxc>plot()</xxc>, <xxc>points()</xxc>, <xxc>boxplot()</xxc> functions.
 <ul>
@@ -180,7 +170,7 @@ dbplot(y, g, group_names=c('Cat','Bat','Rat'),
            )
 </code></pre>
 
-<img src="../assets/images/dbplot1.png" alt="jmplot example", width="80%">
+<img src="../assets/images/dbplot1.png" alt="jmplot example" width="80%">
 
 </div>
 </li>
@@ -474,5 +464,15 @@ jmplot(x, y, levels, col=co, pch=19, main='Title', show.n=TRUE)
 </section>
 </main>
 </div> <!-- End of container-box -->
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

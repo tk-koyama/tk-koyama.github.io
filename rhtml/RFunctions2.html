@@ -14,17 +14,7 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/r.min.js"></script> -->
 <!-- Initialize Highlight.js -->
-<script>hljs.highlightAll();</script>
-    <script>
-        function toggleVisibility(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "none") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
-    </script>
+<!-- <script>hljs.highlightAll();</script> -->
 </head>
 <!-- ------ --> 
 <!--        --> 
@@ -160,10 +150,10 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
     <div id="Beta" style="display: none;">
         <strong>Beta distribution</strong>. These four functions are used for Beta distributions. <code class="cxx">a</code> and <code class="cxx">b</code> are the two parameters.
         <ul>
-            <li><span class="cx">BetaMS(a, b)</span> calculates the mean, variance, and standard deviation of a Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) distribution.</li>
-            <li><span class="cx">plotBetaDis(a, b)</span> plots the density function given <code class="cxx">a</code> and <code class="cxx">b</code>.</li>
-            <li><span class="cx">BetaParameters(m, v)</span> solves for <code class="cxx">a</code> and <code class="cxx">b</code> given the mean and variance of the distribution. <small>I use this function when I need to simulate probabilities.</small></li>
-            <li><span class="cx">BetaCI(a, b, x, n, p)</span> computes a 100*<code class="cxx">p</code>% credible interval given Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) as the prior distribution and "<code class="cxx">x</code> successes out <code class="cxx">n</code>" as the data.</li>
+            <li><code class="cx">BetaMS(a, b)</code> calculates the mean, variance, and standard deviation of a Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) distribution.</li>
+            <li><code class="cx">plotBetaDis(a, b)</code> plots the density function given <code class="cxx">a</code> and <code class="cxx">b</code>.</li>
+            <li><code class="cx">BetaParameters(m, v)</code> solves for <code class="cxx">a</code> and <code class="cxx">b</code> given the mean and variance of the distribution. <small>I use this function when I need to simulate probabilities.</small></li>
+            <li><code class="cx">BetaCI(a, b, x, n, p)</code> computes a 100*<code class="cxx">p</code>% credible interval given Beta(<code class="cxx">a</code>, <code class="cxx">b</code>) as the prior distribution and "<code class="cxx">x</code> successes out <code class="cxx">n</code>" as the data.</li>
         </ul>
 <pre><code class="code-block">BetaMS(a=29, b=11)
 <span class="output">
@@ -214,7 +204,7 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <li><button onclick="toggleVisibility('myKindaDay')">My kind of day!</button>
     <div id="myKindaDay" style="display: none;">
-        <strong>myKinddDay</strong> takes a regular R 'date' element and changes it to "yyyy/mm/dd" with no leading zeros <small>(which is most common in Japan)</small>. 
+        <strong>myKindaDay</strong> takes a regular R 'date' element and changes it to "yyyy/mm/dd" with no leading zeros <small>(which is most common in Japan)</small>. 
 <pre><code class="code-block">as.Date('1999-6-20')
 <span class="output">
 [1] "1999-06-20"
@@ -229,12 +219,19 @@ Combined   150 4.3 5.10 5.8 6.40 7.9 5.84 0.828
 <!-- ------ --> 
 <!--        --> 
 <!-- ------ --> 
-
-
 </ul>
-</div>
 </section>
 </main>
 </div> <!-- End of container-box -->
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
