@@ -56,7 +56,7 @@
 <h3>Inputs</h3>
 <ul>
     <li><code class="cx">n</code> Total number of assignments needed. This should be (much) larger than the actual sample size.</li>
-    <li><code class="cx">Groups</code> Treatment group names, e.g., <code class="cxx">c('Control','Treatment')</code></li>
+    <li><code class="cx">groups</code> Treatment group names, e.g., <code class="cxx">c('Control','Treatment')</code></li>
     <li><code class="cx">prob</code> Probabilities for block sizes. Does not need to sum to one (will be normalized).
         <ul><li>If there are only two treatment groups, possible block sizes are 2, 4, or 6, with default probabilities of <code class="cxx">c(0.2, 0.7, 0.1)</code>.</li></ul></li>
     <li><code class="cx">allocation</code> Allocation ratio. e.g., <code class="cxx">c(2,1,1)</code> for a 2:1:1 allocation ratio. Use <code class="cxx">NA</code> for equal allocation.</li>
@@ -65,7 +65,7 @@
 
 <h3>Example</h3>
 <pre><code class="code-block">set.seed(620)
-out <- block_rand(n=40, Groups=c('X','Z'), prob=c(2,7,1),
+out <- block_rand(n=40, groups=c('X','Z'), prob=c(2,7,1),
                   allocation=c(2,1), seed=NA)
 
 > out
@@ -89,7 +89,7 @@ table(out$assignments)
 
 Setting <code class="cxx">seed=1760</code> allows the result to be reproduced.
 
-<pre><code class="code-block">out <- block_rand(n=40, Groups=c('X','Z'), prob=c(2,7,1),
+<pre><code class="code-block">out <- block_rand(n=40, groups=c('X','Z'), prob=c(2,7,1),
                 allocation=c(2,1), seed=1760)
 </code></pre>
 </div>
@@ -102,7 +102,7 @@ Setting <code class="cxx">seed=1760</code> allows the result to be reproduced.
     <h4>Main Arguments</h4>
     <ul>
         <li><code class="cx">stratum_size</code> Sample size per stratum (each subgroup receives this number of allocations).</li>
-        <li><code class="cx">Groups</code> Treatment group names; refer to <code class="cxx">block_rand()</code>.</li>
+        <li><code class="cx">groups</code> Treatment group names; refer to <code class="cxx">block_rand()</code>.</li>
         <li><code class="cx">prob</code> Probabilities for block sizes; refer to <code class="cxx">block_rand()</code>.</li>
         <li><code class="cx">allocation</code> Allocation ratios; refer to <code class="cxx">block_rand()</code>.</li>
         <li><code class="cx">seed</code> Random seed for reproducibility; refer to <code class="cxx">block_rand()</code>.</li>
@@ -114,7 +114,7 @@ Setting <code class="cxx">seed=1760</code> allows the result to be reproduced.
     
     <h3>Example</h3>
     <pre><code class="code-block">set.seed(620)
-out <- strat_rand(stratum_size=40, Groups=c('X','Z'), prob=c(2,7,1), 
+out <- strat_rand(stratum_size=40, groups=c('X','Z'), prob=c(2,7,1), 
            allocation=c(2,1), seed=NA,
            Hospital=c('V','A','B'), Smoking=c('Yes','No'))
 
